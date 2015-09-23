@@ -40,7 +40,7 @@ public class GetGoodsImpl implements BaseServiceI<GetGoodsDto>{
     	getGoodsDao.deleteByPrimaryKey(id);
     }
 
-	@Override
+
 	public void deleteEntity(GetGoodsDto getGoodsDto) {
 		getGoodsDao.deleteByPrimaryKey(getGoodsDto.getId());
 	}
