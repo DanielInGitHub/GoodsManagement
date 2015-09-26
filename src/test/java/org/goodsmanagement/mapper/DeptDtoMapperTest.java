@@ -4,7 +4,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.fiveguns.poo.DeptDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -51,9 +50,9 @@ public class DeptDtoMapperTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         sf= new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session = sf.openSession();
-        DeptDto u;
-        u = session.selectOne("org.fiveguns.mapper.DeptDtoMapper.selectByPrimaryKey", "1");
-        System.out.println(u);
+//        DeptDto u;
+//        u = session.selectOne("org.fiveguns.mapper.DeptDtoMapper.selectByPrimaryKey", "1");
+//        System.out.println(u);
 //        List<GoodsVo> users =  sqlSession.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectGroupByName");
 //        System.out.println(users.get(1).getGoodname());
     }

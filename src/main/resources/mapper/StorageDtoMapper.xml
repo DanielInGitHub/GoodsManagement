@@ -168,7 +168,7 @@
         WHERE goods.id = inrepository.goodid
         AND inrepository.inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
     </select>
-    <select id="selectall" resultType="org.fiveguns.poo.InRepositoryDto">
+    <select id="selectall" resultType="org.fiveguns.po.StorageDto">
         select
         <include refid="Base_Column_List"/>
         from inrepository
