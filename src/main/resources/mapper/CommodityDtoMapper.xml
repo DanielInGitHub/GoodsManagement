@@ -99,4 +99,18 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+    <select id="selectByName" resultType="org.fiveguns.poo.GoodsDto" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from goods
+        where goodname = #{name,jdbcType=VARCHAR}
+    </select>
+    <select id="selectGroupByName" resultType="org.fiveguns.vo.GoodsVo" >
+        select
+        goodname ,
+        goodunit
+        from goods
+        GROUP BY goodname
+    </select>
+
 </mapper>
