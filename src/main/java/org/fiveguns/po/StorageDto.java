@@ -88,7 +88,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.id
      *
      * @return the value of storage.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getId() {
@@ -100,7 +99,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.id
      *
      * @param id the value for storage.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setId(Integer id) {
@@ -112,7 +110,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.time
      *
      * @return the value of storage.time
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Date getTime() {
@@ -124,7 +121,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.time
      *
      * @param time the value for storage.time
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setTime(Date time) {
@@ -136,7 +132,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.goodid
      *
      * @return the value of storage.goodid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getGoodid() {
@@ -148,7 +143,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.goodid
      *
      * @param goodid the value for storage.goodid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setGoodid(Integer goodid) {
@@ -160,7 +154,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.number
      *
      * @return the value of storage.number
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getNumber() {
@@ -172,7 +165,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.number
      *
      * @param number the value for storage.number
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setNumber(Integer number) {
@@ -184,7 +176,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.supplycompany
      *
      * @return the value of storage.supplycompany
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getSupplycompany() {
@@ -196,7 +187,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.supplycompany
      *
      * @param supplycompany the value for storage.supplycompany
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setSupplycompany(String supplycompany) {
@@ -208,7 +198,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.supplier
      *
      * @return the value of storage.supplier
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getSupplier() {
@@ -220,7 +209,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.supplier
      *
      * @param supplier the value for storage.supplier
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setSupplier(String supplier) {
@@ -232,7 +220,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.phone
      *
      * @return the value of storage.phone
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getPhone() {
@@ -244,7 +231,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.phone
      *
      * @param phone the value for storage.phone
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setPhone(String phone) {
@@ -256,7 +242,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.operatorid
      *
      * @return the value of storage.operatorid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getOperatorid() {
@@ -268,7 +253,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.operatorid
      *
      * @param operatorid the value for storage.operatorid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setOperatorid(Integer operatorid) {
@@ -280,7 +264,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.comments
      *
      * @return the value of storage.comments
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getComments() {
@@ -292,7 +275,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.comments
      *
      * @param comments the value for storage.comments
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setComments(String comments) {
@@ -304,7 +286,6 @@ public class StorageDto {
      * This method returns the value of the database column storage.storageid
      *
      * @return the value of storage.storageid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getStorageid() {
@@ -316,7 +297,6 @@ public class StorageDto {
      * This method sets the value of the database column storage.storageid
      *
      * @param storageid the value for storage.storageid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setStorageid(String storageid) {

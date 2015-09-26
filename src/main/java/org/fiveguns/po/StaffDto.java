@@ -38,7 +38,6 @@ public class StaffDto {
      * This method returns the value of the database column staff.id
      *
      * @return the value of staff.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getId() {
@@ -50,7 +49,6 @@ public class StaffDto {
      * This method sets the value of the database column staff.id
      *
      * @param id the value for staff.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setId(Integer id) {
@@ -62,7 +60,6 @@ public class StaffDto {
      * This method returns the value of the database column staff.name
      *
      * @return the value of staff.name
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getName() {
@@ -74,7 +71,6 @@ public class StaffDto {
      * This method sets the value of the database column staff.name
      *
      * @param name the value for staff.name
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setName(String name) {
@@ -86,7 +82,6 @@ public class StaffDto {
      * This method returns the value of the database column staff.gender
      *
      * @return the value of staff.gender
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getGender() {
@@ -98,7 +93,6 @@ public class StaffDto {
      * This method sets the value of the database column staff.gender
      *
      * @param gender the value for staff.gender
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setGender(String gender) {
@@ -110,7 +104,6 @@ public class StaffDto {
      * This method returns the value of the database column staff.deptid
      *
      * @return the value of staff.deptid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getDeptid() {
@@ -122,7 +115,6 @@ public class StaffDto {
      * This method sets the value of the database column staff.deptid
      *
      * @param deptid the value for staff.deptid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setDeptid(Integer deptid) {

@@ -6,8 +6,13 @@
  * </ol>
  * <strong>以下是对这个包中的类的介绍</strong>
  * <ol>
- *      <li>DeptDto表示部门实体对象</li>
- *      <li>DeptDto表示部门实体对象</li>
+ *      <li>CommodityDto表示商品实体对象</li>
+ *      <li>DeliveryDto表示出库实体对象</li>
+ *      <li>DepartmentDto表示部门实体对象</li>
+ *      <li>GoodsConsumeDto表示物品领取实体对象</li>
+ *      <li>StaffDto表示员工实体对象</li>
+ *      <li>StorageDto表示入库实体对象</li>
+ *      <li>UserDto表示用户实体对象</li>
  * </ol>
  *
  * Created by never on 2015/9/26.

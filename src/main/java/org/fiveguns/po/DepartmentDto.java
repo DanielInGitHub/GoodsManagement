@@ -22,7 +22,6 @@ public class DepartmentDto {
      * This method returns the value of the database column department.id
      *
      * @return the value of department.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getId() {
@@ -34,7 +33,6 @@ public class DepartmentDto {
      * This method sets the value of the database column department.id
      *
      * @param id the value for department.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setId(Integer id) {
@@ -46,7 +44,6 @@ public class DepartmentDto {
      * This method returns the value of the database column department.name
      *
      * @return the value of department.name
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getName() {
@@ -58,7 +55,6 @@ public class DepartmentDto {
      * This method sets the value of the database column department.name
      *
      * @param name the value for department.name
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setName(String name) {

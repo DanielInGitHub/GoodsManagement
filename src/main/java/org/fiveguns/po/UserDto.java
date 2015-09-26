@@ -30,7 +30,6 @@ public class UserDto {
      * This method returns the value of the database column user.id
      *
      * @return the value of user.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getId() {
@@ -42,7 +41,6 @@ public class UserDto {
      * This method sets the value of the database column user.id
      *
      * @param id the value for user.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setId(Integer id) {
@@ -54,7 +52,6 @@ public class UserDto {
      * This method returns the value of the database column user.username
      *
      * @return the value of user.username
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getUsername() {
@@ -66,7 +63,6 @@ public class UserDto {
      * This method sets the value of the database column user.username
      *
      * @param username the value for user.username
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setUsername(String username) {
@@ -78,7 +74,6 @@ public class UserDto {
      * This method returns the value of the database column user.password
      *
      * @return the value of user.password
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public String getPassword() {
@@ -90,7 +85,6 @@ public class UserDto {
      * This method sets the value of the database column user.password
      *
      * @param password the value for user.password
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setPassword(String password) {

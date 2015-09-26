@@ -38,7 +38,6 @@ public class GoodsConsumeDto {
      * This method returns the value of the database column goodsconsume.id
      *
      * @return the value of goodsconsume.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getId() {
@@ -50,7 +49,6 @@ public class GoodsConsumeDto {
      * This method sets the value of the database column goodsconsume.id
      *
      * @param id the value for goodsconsume.id
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setId(Integer id) {
@@ -62,7 +60,6 @@ public class GoodsConsumeDto {
      * This method returns the value of the database column goodsconsume.staffid
      *
      * @return the value of goodsconsume.staffid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getStaffid() {
@@ -74,7 +71,6 @@ public class GoodsConsumeDto {
      * This method sets the value of the database column goodsconsume.staffid
      *
      * @param staffid the value for goodsconsume.staffid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setStaffid(Integer staffid) {
@@ -86,7 +82,6 @@ public class GoodsConsumeDto {
      * This method returns the value of the database column goodsconsume.goodid
      *
      * @return the value of goodsconsume.goodid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getGoodid() {
@@ -98,7 +93,6 @@ public class GoodsConsumeDto {
      * This method sets the value of the database column goodsconsume.goodid
      *
      * @param goodid the value for goodsconsume.goodid
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setGoodid(Integer goodid) {
@@ -110,7 +104,6 @@ public class GoodsConsumeDto {
      * This method returns the value of the database column goodsconsume.number
      *
      * @return the value of goodsconsume.number
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public Integer getNumber() {
@@ -122,7 +115,6 @@ public class GoodsConsumeDto {
      * This method sets the value of the database column goodsconsume.number
      *
      * @param number the value for goodsconsume.number
-     *
      * @mbggenerated Sat Sep 26 15:34:39 CST 2015
      */
     public void setNumber(Integer number) {
