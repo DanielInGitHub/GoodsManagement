@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.GetGoodsDaoImpl;
-import org.fiveguns.poo.GetGoodsDto;
+import org.fiveguns.dao.impl.GoodsConsumedaoImpl;
+import org.fiveguns.po.GoodsConsumeDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.GetGoodsVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,33 +15,33 @@ import java.util.List;
  * Created by johnny on 2015/9/23.
  */
 @Service
-public class GetGoodsServiceImpl implements BaseServiceI<GetGoodsDto> {
+public class GetGoodsServiceImpl implements BaseServiceI<GoodsConsumeDto> {
     @Autowired
-    @Qualifier("getGoodsDaoImpl")
-    private GetGoodsDaoImpl getGoodsDaoImpl;
+    @Qualifier("goodsConsumedaoImpl")
+    private GoodsConsumedaoImpl goodsConsumedaoImpl;
 
-    public void addEntity(GetGoodsDto getGoodsDto) {
-        getGoodsDaoImpl.insert(getGoodsDto);
+    public void addEntity(GoodsConsumeDto GoodsConsumeDto) {
+        goodsConsumedaoImpl.insert(GoodsConsumeDto);
     }
 
-    public void modifyEntity(GetGoodsDto getGoodsDto) {
-        getGoodsDaoImpl.updateByPrimaryKey(getGoodsDto);
+    public void modifyEntity(GoodsConsumeDto GoodsConsumeDto) {
+        goodsConsumedaoImpl.updateByPrimaryKey(GoodsConsumeDto);
     }
 
-    public GetGoodsDto loadEntity(int id) {
+    public GoodsConsumeDto loadEntity(int id) {
         return null;
     }
 
-    public GetGoodsDto getEntity(int id) {
-        return getGoodsDaoImpl.selectByPrimaryKey(id);
+    public GoodsConsumeDto getEntity(int id) {
+        return goodsConsumedaoImpl.selectByPrimaryKey(id);
     }
 
-    public List<GetGoodsDto> getAllEntities() {
+    public List<GoodsConsumeDto> getAllEntities() {
         return null;
     }
 
-    public void deleteEntity(GetGoodsDto getGoodsDto) {
-        getGoodsDaoImpl.deleteByPrimaryKey(getGoodsDto.getId());
+    public void deleteEntity(GoodsConsumeDto GoodsConsumeDto) {
+        goodsConsumedaoImpl.deleteByPrimaryKey(GoodsConsumeDto.getId());
     }
 
     /**
@@ -50,7 +50,7 @@ public class GetGoodsServiceImpl implements BaseServiceI<GetGoodsDto> {
      * @return vo
      */
     public GetGoodsVO getGoodsById(int id) {
-        return getGoodsDaoImpl.getGoodsById(id);
+        return goodsConsumedaoImpl.getGoodsById(id);
     }
 
 }

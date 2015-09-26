@@ -1,14 +1,14 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.poo.UserDto;
+import org.fiveguns.po.UserDto;
 import org.springframework.stereotype.Component;
 
 /**
  * Created by lifei on 2015/9/20.
  */
 @Component
-public class UserDao extends BasedaoA<UserDto> {
+public class UserdaoImpl extends BasedaoA<UserDto> {
     /**
      * 通过主键获取实体
      *

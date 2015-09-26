@@ -1,6 +1,6 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.DeptdaoImpl;
+import org.fiveguns.dao.impl.DepartmentdaoImpl;
 import org.fiveguns.poo.DeptDto;
 import org.fiveguns.service.BaseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class DeptServiceImpl implements BaseServiceI<DeptDto> {
 
     @Autowired
     @Qualifier("deptDao")
-    private DeptdaoImpl deptdao;
+    private DepartmentdaoImpl deptdao;
 
     public void addEntity(DeptDto deptDto) {
         deptdao.insert(deptDto);

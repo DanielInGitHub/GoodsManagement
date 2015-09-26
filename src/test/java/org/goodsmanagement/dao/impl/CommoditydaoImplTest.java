@@ -1,8 +1,7 @@
 package org.goodsmanagement.dao.impl;
 
-import org.fiveguns.dao.impl.GetGoodsDaoImpl;
-import org.fiveguns.poo.GetGoodsDto;
-import org.fiveguns.vo.GetGoodsVO;
+import org.fiveguns.dao.impl.CommoditydaoImpl;
+import org.fiveguns.vo.Warehouse;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -13,27 +12,30 @@ import java.util.List;
 /**
  * Created by johnny on 2015/9/23.
  */
-public class GetGoodsDaoImplTest {
+public class CommoditydaoImplTest {
 
     private ApplicationContext applicationContext;
-    private GetGoodsDaoImpl getGoodsDao;
+    private CommoditydaoImpl goodsDao;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        getGoodsDao = (GetGoodsDaoImpl) applicationContext.getBean("getGoodsDaoImpl");
+        goodsDao = (CommoditydaoImpl) applicationContext.getBean("goodsDaoImpl");
+    }
+
+    @Test
+    public void getWarehouseInventoryTest() {
+        List<Warehouse> warehouses = goodsDao.getWarehouseInventory();
+        System.out.println(warehouses);
     }
 
     @Test
     public void getGoodsById() {
-        GetGoodsVO vo = getGoodsDao.getGoodsById(1);
-        System.out.println(vo);
+
     }
 
     @Test
     public void allGetGoodsInfo() {
-        List<GetGoodsVO> list = getGoodsDao.allGetGoodsInfo();
-        System.out.println(list);
     }
 
 
@@ -44,11 +46,6 @@ public class GetGoodsDaoImplTest {
 
     @Test
     public void testInsert() throws Exception {
-        GetGoodsDto getGoodsDto = new GetGoodsDto();
-        getGoodsDto.setGoodid(1);
-        getGoodsDto.setStaffid(1);
-        getGoodsDto.setGetnumber(20);
-        getGoodsDao.insert(getGoodsDto);
     }
 
     @Test
@@ -58,7 +55,6 @@ public class GetGoodsDaoImplTest {
 
     @Test
     public void testSelectByPrimaryKey() throws Exception {
-        getGoodsDao.selectByPrimaryKey(1);
     }
 
     @Test

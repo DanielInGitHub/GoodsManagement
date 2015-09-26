@@ -1,6 +1,6 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.OutRepositoryDaoImpl;
+import org.fiveguns.dao.impl.DeliverydaoImpl;
 import org.fiveguns.poo.OutRepositoryDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.OutRepositoryVO;
@@ -17,15 +17,15 @@ import java.util.List;
 @Service
 public class OutRepositoryServiceImpl implements BaseServiceI<OutRepositoryDto> {
     @Autowired
-    @Qualifier("outRepositoryDaoImpl")
-    private OutRepositoryDaoImpl outRepositoryDaoImpl;
+    @Qualifier("deliverydaoImpl")
+    private DeliverydaoImpl deliverydaoImpl;
 
     public void addEntity(OutRepositoryDto outRepositoryDto) {
-        outRepositoryDaoImpl.insert(outRepositoryDto);
+        deliverydaoImpl.insert(outRepositoryDto);
     }
 
     public void modifyEntity(OutRepositoryDto outRepositoryDto) {
-        outRepositoryDaoImpl.updateByPrimaryKeySelective(outRepositoryDto);
+        deliverydaoImpl.updateByPrimaryKeySelective(outRepositoryDto);
     }
 
     public OutRepositoryDto loadEntity(int id) {
@@ -33,7 +33,7 @@ public class OutRepositoryServiceImpl implements BaseServiceI<OutRepositoryDto> 
     }
 
     public OutRepositoryDto getEntity(int id) {
-        return outRepositoryDaoImpl.selectByPrimaryKey(id);
+        return deliverydaoImpl.selectByPrimaryKey(id);
     }
 
     public List<OutRepositoryDto> getAllEntities() {
@@ -41,7 +41,7 @@ public class OutRepositoryServiceImpl implements BaseServiceI<OutRepositoryDto> 
     }
 
     public void deleteEntity(OutRepositoryDto outRepositoryDto) {
-        outRepositoryDaoImpl.deleteByPrimaryKey(outRepositoryDto.getId());
+        deliverydaoImpl.deleteByPrimaryKey(outRepositoryDto.getId());
     }
 
     /**
@@ -49,6 +49,6 @@ public class OutRepositoryServiceImpl implements BaseServiceI<OutRepositoryDto> 
      * @return
      */
     public List<OutRepositoryVO> getAllOutRepositoryVO() {
-        return outRepositoryDaoImpl.selectAll();
+        return deliverydaoImpl.selectAll();
     }
 }

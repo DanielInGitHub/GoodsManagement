@@ -4,10 +4,10 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.fiveguns.dao.impl.GoodsDaoImpl;
-import org.fiveguns.dao.impl.InRepositoryDaoImpl;
-import org.fiveguns.poo.GoodsDto;
-import org.fiveguns.poo.InRepositoryDto;
+import org.fiveguns.dao.impl.CommoditydaoImpl;
+import org.fiveguns.dao.impl.StoragedaoImpl;
+import org.fiveguns.po.CommodityDto;
+import org.fiveguns.po.StorageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -27,22 +27,22 @@ import java.text.SimpleDateFormat;
 @Component
 public class InRepositoryUtils {
     @Autowired
-    @Qualifier("inRepositoryDaoImpl")
+    @Qualifier("storagedaoImpl")
 
-    private InRepositoryDaoImpl inRepositoryDaoImpl;
+    private StoragedaoImpl storagedaoImpl;
 
     @Autowired
-    @Qualifier("goodsDaoImpl")
-    private GoodsDaoImpl goodsDaoImpl;
+    @Qualifier("commoditydaoImpl")
+    private CommoditydaoImpl commoditydaoImpl;
 
 //    public static String filePath = "C:\\Users\\lifei\\Desktop\\goods.xls";
 
-//    public static void main(String[] args){
+    //    public static void main(String[] args){
 //        InRepositoryUtils.addPoiUtils(filePath);
 //    }
     public String addPoiUtils(String filePath) {
         HSSFWorkbook wookbook = null;
-        InRepositoryDto in;
+        StorageDto in;
         String InRepositoryid = null;
         try {
             // 创建对Excel工作簿文件的引用
@@ -122,11 +122,11 @@ public class InRepositoryUtils {
                         System.out.println(s);
                     }
                     //拿到val1中入库表单的数据
-                    in = new InRepositoryDto();
-                    in.setInrepositoryid(val1[0]);
+                    in = new StorageDto();
+                    in.setStorageid(val1[0]);
                     InRepositoryid = val1[0];
-                    in.setSuppliers(val1[1]);
-                    in.setLinkman(val1[2]);
+                    in.setSupplycompany(val1[1]);
+                    in.setSupplier(val1[2]);
                     in.setOperatorid(Integer.parseInt(val1[3]));
                     Date indata = null;
                     try {
@@ -135,14 +135,14 @@ public class InRepositoryUtils {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    in.setIntime(indata);
+                    in.setTime(indata);
                     in.setComments(val1[5]);
                     in.setPhone(val1[6]);
                     //将物品信息设置
                     in.setGoodid(Integer.parseInt(val[0]));
-                    in.setGoodnumber(Integer.parseInt(val[1]));
+                    in.setNumber(Integer.parseInt(val[1]));
 //                        System.out.println(in);
-                    inRepositoryDaoImpl.insert(in);
+                    storagedaoImpl.insert(in);
 
 //                    SqlSessionFactory sqlSessionFactory;
 //                    SqlSession sqlSession;
@@ -150,18 +150,17 @@ public class InRepositoryUtils {
 //                    applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
 //                    sqlSessionFactory = (SqlSessionFactory) applicationContext.getBean("sqlSessionFactory");
 //                    sqlSession = sqlSessionFactory.openSession();
-//                    GoodsDto good =sqlSession.selectOne("org.fiveguns.mapper.GoodsDtoMapper.selectByPrimaryKey", Integer.parseInt(val[0]));
+//                    CommodityDto good =sqlSession.selectOne("org.fiveguns.mapper.CommodityDtoMapper.selectByPrimaryKey", Integer.parseInt(val[0]));
 
 
+                    CommodityDto good = commoditydaoImpl.selectByPrimaryKey(Integer.parseInt(val[0]));
+                    int num = good.getNumber() + Integer.parseInt(val[1]);
+                    good.setNumber(num);
+                    commoditydaoImpl.updateByPrimaryKey(good);
 
-                    GoodsDto good = goodsDaoImpl.selectByPrimaryKey(Integer.parseInt(val[0]));
-                    int num = good.getGoodnumbers() + Integer.parseInt(val[1]);
-                    good.setGoodnumbers(num);
-                    goodsDaoImpl.updateByPrimaryKey(good);
-
-//                    int count = sqlSession.update("org.fiveguns.mapper.GoodsDtoMapper.updateByPrimaryKeySelective", good);
+//                    int count = sqlSession.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKeySelective", good);
 //                    System.out.println(count);
-//                    int counts = sqlSession.insert("org.fiveguns.mapper.InRepositoryDtoMapper.insertSelective", in);
+//                    int counts = sqlSession.insert("org.fiveguns.mapper.StorageDtoMapper.insertSelective", in);
 //                    System.out.println(counts);
                 }
 

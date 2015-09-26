@@ -1,7 +1,7 @@
 package org.goodsmanagement.dao.impl;
 
-import org.fiveguns.dao.impl.GoodsDaoImpl;
-import org.fiveguns.vo.Warehouse;
+import org.fiveguns.dao.impl.GoodsConsumedaoImpl;
+import org.fiveguns.vo.GetGoodsVO;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -12,30 +12,27 @@ import java.util.List;
 /**
  * Created by johnny on 2015/9/23.
  */
-public class GoodsDaoImplTest {
+public class GoodsConsumedaoImplTest {
 
     private ApplicationContext applicationContext;
-    private GoodsDaoImpl goodsDao;
+    private GoodsConsumedaoImpl getGoodsDao;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        goodsDao = (GoodsDaoImpl) applicationContext.getBean("goodsDaoImpl");
-    }
-
-    @Test
-    public void getWarehouseInventoryTest() {
-        List<Warehouse> warehouses = goodsDao.getWarehouseInventory();
-        System.out.println(warehouses);
+        getGoodsDao = (GoodsConsumedaoImpl) applicationContext.getBean("getGoodsDaoImpl");
     }
 
     @Test
     public void getGoodsById() {
-
+        GetGoodsVO vo = getGoodsDao.getGoodsById(1);
+        System.out.println(vo);
     }
 
     @Test
     public void allGetGoodsInfo() {
+        List<GetGoodsVO> list = getGoodsDao.allGetGoodsInfo();
+        System.out.println(list);
     }
 
 
@@ -46,6 +43,11 @@ public class GoodsDaoImplTest {
 
     @Test
     public void testInsert() throws Exception {
+//        GetGoodsDto getGoodsDto = new GetGoodsDto();
+//        getGoodsDto.setGoodid(1);
+//        getGoodsDto.setStaffid(1);
+//        getGoodsDto.setGetnumber(20);
+//        getGoodsDao.insert(getGoodsDto);
     }
 
     @Test
@@ -55,6 +57,7 @@ public class GoodsDaoImplTest {
 
     @Test
     public void testSelectByPrimaryKey() throws Exception {
+        getGoodsDao.selectByPrimaryKey(1);
     }
 
     @Test

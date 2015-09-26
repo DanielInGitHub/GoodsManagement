@@ -2,7 +2,7 @@ package org.goodsmanagement.mapper;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.fiveguns.dao.impl.InRepositoryDaoImpl;
+import org.fiveguns.dao.impl.StoragedaoImpl;
 import org.fiveguns.service.impl.InRepositoryServiceImpl;
 import org.fiveguns.vo.InrepositoryGood;
 import org.fiveguns.vo.Inrepositorysql;
@@ -25,8 +25,8 @@ public class GoodsMapperTest {
     private SqlSession sqlSession;
     private ApplicationContext applicationContext;
     @Autowired
-    @Qualifier("inRepositoryDaoImpl")
-    private InRepositoryDaoImpl inRepositoryDaoImpl;
+    @Qualifier("storagedaoImpl")
+    private StoragedaoImpl storagedaoImpl;
     @Autowired
     @Qualifier("inRepositoryServiceImpl")
     private InRepositoryServiceImpl inRepositoryServiceImpl;
@@ -34,7 +34,7 @@ public class GoodsMapperTest {
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        inRepositoryDaoImpl = (InRepositoryDaoImpl) applicationContext.getBean("inRepositoryDaoImpl");
+        storagedaoImpl = (StoragedaoImpl) applicationContext.getBean("storagedaoImpl");
         sqlSessionFactory = (SqlSessionFactory) applicationContext.getBean("sqlSessionFactory");
         sqlSession = sqlSessionFactory.openSession();
         inRepositoryServiceImpl = (InRepositoryServiceImpl) applicationContext.getBean("inRepositoryServiceImpl");
@@ -70,7 +70,7 @@ public class GoodsMapperTest {
 //        in.setGoodid(1);
 //        in.setGoodnumber(20);
 //        int i = sqlSession.insert("org.fiveguns.mapper.InRepositoryDtoMapper.insert", in);
-//        int i=inRepositoryDaoImpl.insert(in);
+//        int i=storagedaoImpl.insert(in);
 //        System.out.println(i);
 //        String inrepositoryid = "k12312";
 //        List<InrepositoryGood> list= sqlSession.selectList("org.fiveguns.mapper.InRepositoryDtoMapper.selectingood",inrepositoryid);

@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.poo.StaffDto;
+import org.fiveguns.po.StaffDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 @Component
-public class StaffDaoImpl extends BasedaoA<StaffDto> {
+public class StaffdaoImpl extends BasedaoA<StaffDto> {
     /**
      * 通过主键获取实体
      *
@@ -33,6 +33,7 @@ public class StaffDaoImpl extends BasedaoA<StaffDto> {
     public int deleteByPrimaryKey(Integer id) {
         return sessionTemplate.delete("org.fiveguns.mapper.StaffDtoMapper.deleteByPrimaryKey", id);
     }
+
     /**
      * 插入记录，必须指定所有的字段
      *
@@ -43,6 +44,7 @@ public class StaffDaoImpl extends BasedaoA<StaffDto> {
     public int insert(StaffDto record) {
         return sessionTemplate.insert("org.fiveguns.mapper.StaffDtoMapper.insert", record);
     }
+
     /**
      * 插入记录，必须指定非空的字段，但是其他字段可选
      *
@@ -64,6 +66,7 @@ public class StaffDaoImpl extends BasedaoA<StaffDto> {
     public int updateByPrimaryKeySelective(StaffDto record) {
         return sessionTemplate.update("org.fiveguns.mapper.StaffDtoMapper.updateByPrimaryKeySelective", record);
     }
+
     /**
      * 通过主键来更新实体类
      *
@@ -74,11 +77,11 @@ public class StaffDaoImpl extends BasedaoA<StaffDto> {
     public int updateByPrimaryKey(StaffDto record) {
         return sessionTemplate.update("org.fiveguns.mapper.StaffDtoMapper.updateByPrimaryKey", record);
     }
+
     /**
      * 通过所有的实体
      *
-     * @return
-     *          所有实体的回合
+     * @return 所有实体的回合
      */
     public List<StaffDto> selectAll() {
         return sessionTemplate.selectList("org.fiveguns.mapper.StaffDtoMapper.selectAll");

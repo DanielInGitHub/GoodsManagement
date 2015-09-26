@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.poo.GoodsDto;
+import org.fiveguns.po.CommodityDto;
 import org.fiveguns.vo.GoodsVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.List;
  * Created by lifei on 2015/9/20.
  */
 @Component
-public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
+public class CommoditydaoImpl extends BasedaoA<CommodityDto> {
     /**
      * 通过主键删除
      *
@@ -21,7 +21,7 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      */
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return sessionTemplate.delete("org.fiveguns.mapper.GoodsDtoMapper.deleteByPrimaryKey", id);
+        return sessionTemplate.delete("org.fiveguns.mapper.CommodityDtoMapper.deleteByPrimaryKey", id);
     }
     /**
      * 插入记录，必须指定所有的字段
@@ -30,8 +30,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return
      */
     @Override
-    public int insert(GoodsDto record) {
-        return sessionTemplate.insert("org.fiveguns.mapper.GoodsDtoMapper.insert", record);
+    public int insert(CommodityDto record) {
+        return sessionTemplate.insert("org.fiveguns.mapper.CommodityDtoMapper.insert", record);
     }
     /**
      * 插入记录，必须指定非空的字段，但是其他字段可选
@@ -40,8 +40,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return
      */
     @Override
-    public int insertSelective(GoodsDto record) {
-        return sessionTemplate.insert("org.fiveguns.mapper.GoodsDtoMapper.insertSelective", record);
+    public int insertSelective(CommodityDto record) {
+        return sessionTemplate.insert("org.fiveguns.mapper.CommodityDtoMapper.insertSelective", record);
     }
     /**
      * 通过主键获取实体
@@ -50,8 +50,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return
      */
     @Override
-    public GoodsDto selectByPrimaryKey(Integer id) {
-        return sessionTemplate.selectOne("org.fiveguns.mapper.GoodsDtoMapper.selectByPrimaryKey", id);
+    public CommodityDto selectByPrimaryKey(Integer id) {
+        return sessionTemplate.selectOne("org.fiveguns.mapper.CommodityDtoMapper.selectByPrimaryKey", id);
     }
     /**
      * 更新实体类，不需要指定所有的键
@@ -60,8 +60,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return
      */
     @Override
-    public int updateByPrimaryKeySelective(GoodsDto record) {
-        return sessionTemplate.update("org.fiveguns.mapper.GoodsDtoMapper.updateByPrimaryKeySelective", record);
+    public int updateByPrimaryKeySelective(CommodityDto record) {
+        return sessionTemplate.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKeySelective", record);
     }
     /**
      * 通过主键来更新实体类
@@ -70,8 +70,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return
      */
     @Override
-    public int updateByPrimaryKey(GoodsDto record) {
-        return sessionTemplate.update("org.fiveguns.mapper.GoodsDtoMapper.updateByPrimaryKey", record);
+    public int updateByPrimaryKey(CommodityDto record) {
+        return sessionTemplate.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKey", record);
     }
     /**
      * 通过货品名称来查询
@@ -81,8 +81,8 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return goods
      *              同意货品名称的集合
      */
-    public  List<GoodsDto> selectByName(String name) {
-        List<GoodsDto> goods =  sessionTemplate.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectByName", "衬衫");
+    public  List<CommodityDto> selectByName(String name) {
+        List<CommodityDto> goods =  sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectByName", "衬衫");
         return goods;
     }
     /**
@@ -92,7 +92,7 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      *              已经分类的Goods集合
      */
     public List<GoodsVo> getEntitieskind() {
-        List<GoodsVo> goods =  sessionTemplate.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectGroupByName");
+        List<GoodsVo> goods =  sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
         return goods;
     }
 
@@ -101,7 +101,7 @@ public class GoodsDaoImpl extends BasedaoA<GoodsDto> {
      * @return 所有库房盘存信息
      */
     public List<Warehouse> getWarehouseInventory() {
-        return sessionTemplate.selectList("org.fiveguns.mapper.GoodsDtoMapper.WarehouseInventory");
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.WarehouseInventory");
     }
 
 }

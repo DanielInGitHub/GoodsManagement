@@ -2,7 +2,7 @@ package org.goodsmanagement.mapper;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.fiveguns.dao.impl.InRepositoryDaoImpl;
+import org.fiveguns.dao.impl.StoragedaoImpl;
 import org.fiveguns.service.impl.InRepositoryServiceImpl;
 import org.fiveguns.vo.InrepositoryShow;
 import org.fiveguns.vo.Inrepositorysql;
@@ -23,8 +23,8 @@ public class InrepositoryMapperTest {
     private SqlSession sqlSession;
     private ApplicationContext applicationContext;
     @Autowired
-    @Qualifier("inRepositoryDaoImpl")
-    private InRepositoryDaoImpl inRepositoryDaoImpl;
+    @Qualifier("storagedaoImpl")
+    private StoragedaoImpl storagedaoImpl;
 
     @Autowired
     @Qualifier("inRepositoryServiceImpl")
@@ -33,7 +33,7 @@ public class InrepositoryMapperTest {
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        inRepositoryDaoImpl = (InRepositoryDaoImpl) applicationContext.getBean("inRepositoryDaoImpl");
+        storagedaoImpl = (StoragedaoImpl) applicationContext.getBean("storagedaoImpl");
         sqlSessionFactory = (SqlSessionFactory) applicationContext.getBean("sqlSessionFactory");
         sqlSession = sqlSessionFactory.openSession();
         inRepositoryServiceImpl = (InRepositoryServiceImpl) applicationContext.getBean("inRepositoryServiceImpl");
@@ -55,7 +55,7 @@ public class InrepositoryMapperTest {
         System.out.println(a);
 //       List<InrepositoryShow> list= sqlSession.selectList("org.fiveguns.mapper.InRepositoryDtoMapper.selectsql", sql);
 //        System.out.println(list.size());
-//        List<InrepositoryShow> list1 = inRepositoryDaoImpl.selectsearch(sql);
+//        List<InrepositoryShow> list1 = storagedaoImpl.selectsearch(sql);
 //        System.out.println("通过Dao接口进行查询"+list1.size());
         int page=1;
         List<InrepositoryShow> list1= sqlSession.selectList("org.fiveguns.mapper.InRepositoryDtoMapper.selectbypage",page*3);
