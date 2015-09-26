@@ -1,10 +1,7 @@
 package org.goodsmanagement.dao.impl;
 
-import org.goodsManagement.dao.impl.GoodsDaoImpl;
-import org.goodsManagement.po.GetGoodsDto;
-import org.goodsManagement.po.GoodsDto;
-import org.goodsManagement.vo.GetGoodsVO;
-import org.goodsManagement.vo.Warehouse;
+import org.fiveguns.dao.impl.GoodsDaoImpl;
+import org.fiveguns.vo.Warehouse;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

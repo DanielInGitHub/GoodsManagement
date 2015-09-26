@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goodsManagement.mapper.StaffDtoMapper">
-    <resultMap id="BaseResultMap" type="org.goodsManagement.po.StaffDto">
+<mapper namespace="org.fiveguns.mapper.StaffDtoMapper">
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.StaffDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="staffname" property="staffname" jdbcType="VARCHAR"/>
         <result column="sex" property="sex" jdbcType="CHAR"/>
@@ -24,14 +24,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.goodsManagement.po.StaffDto">
+    <insert id="insert" parameterType="org.fiveguns.po.StaffDto">
     insert into staff (id, staffname, sex,
       deptid)
     values (#{id,jdbcType=INTEGER}, #{staffname,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
       #{deptid,jdbcType=INTEGER})
   </insert>
 
-    <insert id="insertSelective" parameterType="org.goodsManagement.po.StaffDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.po.StaffDto">
         insert into staff
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -63,7 +63,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.goodsManagement.po.StaffDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.StaffDto">
         update staff
         <set>
             <if test="staffname != null">
@@ -79,14 +79,14 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.goodsManagement.po.StaffDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.StaffDto">
     update staff
     set staffname = #{staffname,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=CHAR},
       deptid = #{deptid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectAll" resultType="org.goodsManagement.po.StaffDto">
+    <select id="selectAll" resultType="org.fiveguns.po.StaffDto">
         select
         <include refid="Base_Column_List"/>
         from staff

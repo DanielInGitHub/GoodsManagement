@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goodsManagement.mapper.OutRepositoryDtoMapper">
-    <resultMap id="BaseResultMap" type="org.goodsManagement.po.OutRepositoryDto">
+<mapper namespace="org.fiveguns.mapper.OutRepositoryDtoMapper">
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.OutRepositoryDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="outtime" property="outtime" jdbcType="DATE"/>
         <result column="goodid" property="goodid" jdbcType="INTEGER"/>
@@ -18,7 +18,7 @@
   </sql>
 
     <!-- 查出所有出库信息 -->
-    <select id="selectAll" resultType="org.goodsManagement.vo.OutRepositoryVO">
+    <select id="selectAll" resultType="org.fiveguns.vo.OutRepositoryVO">
         SELECT outrepositoryid, outr.id, outtime, goodname, goodtype, goodnumber, username, deptname, comments
         FROM outrepository outr
         LEFT JOIN goods ON goods.id = goodid
@@ -38,7 +38,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.goodsManagement.po.OutRepositoryDto">
+    <insert id="insert" parameterType="org.fiveguns.po.OutRepositoryDto">
     insert into outrepository (id, outtime, goodid,
       goodnumber, operatorid, deptid, 
       standardnumber, comments,outrepositoryid)
@@ -47,7 +47,7 @@
       #{standardnumber,jdbcType=INTEGER}, #{comments,jdbcType=VARCHAR},#{outrepositoryid,jdbcType=VARCHAR})
   </insert>
 
-    <insert id="insertSelective" parameterType="org.goodsManagement.po.OutRepositoryDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.po.OutRepositoryDto">
         insert into outrepository
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -109,7 +109,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.goodsManagement.po.OutRepositoryDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.OutRepositoryDto">
         update outrepository
         <set>
             <if test="outtime != null">
@@ -140,7 +140,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.goodsManagement.po.OutRepositoryDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.OutRepositoryDto">
     update outrepository
     set outtime = #{outtime,jdbcType=DATE},
       goodid = #{goodid,jdbcType=INTEGER},

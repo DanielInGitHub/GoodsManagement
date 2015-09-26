@@ -1,10 +1,7 @@
 package org.goodsmanagement.service.impl;
 
-import org.goodsManagement.po.OutRepositoryDto;
-import org.goodsManagement.service.impl.GetGoodsServiceImpl;
-import org.goodsManagement.service.impl.OutRepositoryServiceImpl;
-import org.goodsManagement.vo.GetGoodsVO;
-import org.goodsManagement.vo.OutRepositoryVO;
+import org.fiveguns.service.impl.OutRepositoryServiceImpl;
+import org.fiveguns.vo.OutRepositoryVO;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

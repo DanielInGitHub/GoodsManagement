@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goodsManagement.mapper.InRepositoryDtoMapper">
-    <resultMap id="BaseResultMap" type="org.goodsManagement.po.InRepositoryDto">
+<mapper namespace="org.fiveguns.mapper.InRepositoryDtoMapper">
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.InRepositoryDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="intime" property="intime" jdbcType="DATE"/>
         <result column="goodid" property="goodid" jdbcType="INTEGER"/>
@@ -29,7 +29,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.goodsManagement.po.InRepositoryDto">
+    <insert id="insert" parameterType="org.fiveguns.po.InRepositoryDto">
     insert into inrepository (id, intime, goodid,
       goodnumber, suppliers, linkman, 
       phone, operatorid, comments,inrepositoryid
@@ -40,7 +40,7 @@
       )
   </insert>
 
-    <insert id="insertSelective" parameterType="org.goodsManagement.po.InRepositoryDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.po.InRepositoryDto">
         insert into inrepository
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -108,7 +108,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.goodsManagement.po.InRepositoryDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.InRepositoryDto">
         update inrepository
         <set>
             <if test="intime != null">
@@ -142,7 +142,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.goodsManagement.po.InRepositoryDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.InRepositoryDto">
     update inrepository
     set intime = #{intime,jdbcType=DATE},
       goodid = #{goodid,jdbcType=INTEGER},
@@ -155,7 +155,7 @@
       inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectingood" resultType="org.goodsManagement.vo.InrepositoryGood" parameterType="java.lang.String">
+    <select id="selectingood" resultType="org.fiveguns.vo.InrepositoryGood" parameterType="java.lang.String">
         select
         goods.goodname,
         goods.goodunit,
@@ -165,12 +165,12 @@
         WHERE goods.id = inrepository.goodid
         AND inrepository.inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
     </select>
-    <select id="selectall" resultType="org.goodsManagement.po.InRepositoryDto" >
+    <select id="selectall" resultType="org.fiveguns.po.InRepositoryDto" >
         select
         <include refid="Base_Column_List"/>
         from inrepository
     </select>
-    <select id="selectsql" resultType="org.goodsManagement.vo.InrepositoryShow" parameterType="org.goodsManagement.vo.Inrepositorysql">
+    <select id="selectsql" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="org.fiveguns.vo.Inrepositorysql">
         select
         inrepository.inrepositoryid,
         inrepository.suppliers,
@@ -194,7 +194,7 @@
         GROUP BY inrepositoryid
     </select>
 
-    <select id="selectgroup" resultType="org.goodsManagement.vo.InrepositoryShow" >
+    <select id="selectgroup" resultType="org.fiveguns.vo.InrepositoryShow" >
         select distinct
         inrepository.inrepositoryid,
         inrepository.suppliers,
@@ -207,7 +207,7 @@
         GROUP BY inrepositoryid
     </select>
 
-    <select id="selectmesInprositoryId" resultType="org.goodsManagement.vo.InrepositoryShow" parameterType="java.lang.String">
+    <select id="selectmesInprositoryId" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="java.lang.String">
         select distinct
         inrepository.inrepositoryid,
         inrepository.suppliers,
@@ -221,7 +221,7 @@
     </select>
 
 
-    <select id="selectcount" resultType="java.lang.Integer" parameterType="org.goodsManagement.vo.Inrepositorysql">
+    <select id="selectcount" resultType="java.lang.Integer" parameterType="org.fiveguns.vo.Inrepositorysql">
         select
         COUNT(*)
         from
@@ -241,7 +241,7 @@
         </where>
         GROUP BY inrepositoryid)AS repository
     </select>
-    <select id="selectbypage" resultType="org.goodsManagement.vo.InrepositoryShow" parameterType="int">
+    <select id="selectbypage" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="int">
         select distinct
         inrepositoryid,
         suppliers,

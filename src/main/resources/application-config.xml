@@ -16,10 +16,10 @@
 
     <!--Spring扫描以下包进行IOC操作-->
     <context:component-scan
-            base-package="org.goodsManagement.dao.impl,
-                          org.goodsManagement.service.impl,
-                          org.goodsManagement.controller,
-                          org.goodsManagement.log.impl"/>
+            base-package="org.fiveguns.dao.impl,
+                          org.fiveguns.service.impl,
+                          org.fiveguns.controller,
+                          org.fiveguns.log.impl"/>
 
     <!--开启注解-->
     <context:annotation-config/>
@@ -79,12 +79,12 @@
         <!--MyBatis的配置文件位置-->
         <!--<property name="configLocation" value="classpath:sqlMapConfig.xml"/>-->
         <!--指定实体类所在的包，增强别名-->
-        <property name="typeAliasesPackage" value="org.goodsManagement.po"/>
+        <property name="typeAliasesPackage" value="org.fiveguns.po"/>
     </bean>
 
     <!--MapperScannerConfigurer就会扫描指定基包下面的所有接口，并把它们注册为一个个MapperFactoryBean对象-->
     <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-    <!--<property name="basePackage" value="org.goodsManagement.mapper"/>-->
+    <!--<property name="basePackage" value="org.commoditymanagementment.mapper"/>-->
     <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
     <!--</bean>-->
 
@@ -146,7 +146,7 @@
     <aop:config proxy-target-class="true">
         <!--pointcut表示将切面逻辑应用到哪些类上，采用的是aspectJ的表达式语言-->
         <aop:pointcut id="myPointcut"
-                      expression="execution(* org.goodsManagement.service.impl.*.*(..))"/>
+                      expression="execution(* org.fiveguns.service.impl.*.*(..))"/>
         <!-- 切面： 将哪个对象中的哪个方法，织入到哪个切入点 -->
         <aop:aspect ref="JDKLogImpl">
             <!-- 前置通知-->

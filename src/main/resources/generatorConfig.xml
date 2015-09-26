@@ -12,7 +12,7 @@
     <context id="MySQLTables" targetRuntime="MyBatis3">
         <!--数据库的驱动信息-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/goodsmanage"
+                        connectionURL="jdbc:mysql://localhost:3306/CommodityManagement"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -23,7 +23,7 @@
         </javaTypeResolver>
 
         <!--生成的po类的位置-->
-        <javaModelGenerator targetPackage="org.goodsManagement.po" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="org.fiveguns.po" targetProject="./src/main/java">
             <!--是否让shema作为包的后缀-->
             <property name="enableSubPackages" value="false"/>
             <!--清楚数据库值的空格-->
@@ -31,35 +31,35 @@
         </javaModelGenerator>
 
         <!--生成的mapper的位置-->
-        <sqlMapGenerator targetPackage="org.goodsManagement.mapper" targetProject="./src/main/java">
+        <sqlMapGenerator targetPackage="org.fiveguns.mapper" targetProject="./src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!--mapper接口类的位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.goodsManagement.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.fiveguns.mapper"
                              targetProject="./src/main/java">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table schema="goodsmanage" tableName="dept" domainObjectName="DeptDto"
+        <table schema="CommodityManagement" tableName="Department" domainObjectName="DepartmentDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="getgoods" domainObjectName="GetGoodsDto"
+        <table schema="CommodityManagement" tableName="GoodsConsume" domainObjectName="GoodsConsumeDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="goods" domainObjectName="GoodsDto"
+        <table schema="CommodityManagement" tableName="Commodity" domainObjectName="CommodityDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="inrepository" domainObjectName="InRepositoryDto"
+        <table schema="CommodityManagement" tableName="Storage" domainObjectName="StorageDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="outrepository" domainObjectName="OutRepositoryDto"
+        <table schema="CommodityManagement" tableName="Delivery" domainObjectName="DeliveryDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="staff" domainObjectName="StaffDto"
+        <table schema="CommodityManagement" tableName="Staff" domainObjectName="StaffDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table schema="goodsmanage" tableName="user" domainObjectName="UserDto"
+        <table schema="CommodityManagement" tableName="User" domainObjectName="UserDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"/>
     </context>

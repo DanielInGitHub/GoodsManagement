@@ -4,7 +4,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.goodsManagement.po.UserDto;
+import org.fiveguns.po.UserDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -41,7 +41,7 @@ public class UserDtoMapperTest {
         userDto.setId(10);
         userDto.setUsername("test");
         userDto.setPassword("test");
-        sqlSession.selectOne("org.goodsManagement.mapper.UserDtoMapper.insert", userDto);
+        sqlSession.selectOne("org.fiveguns.mapper.UserDtoMapper.insert", userDto);
         sqlSession.commit();
         sqlSession.close();
 //        System.out.println(userDto);
@@ -54,7 +54,7 @@ public class UserDtoMapperTest {
 
     @Test
     public void testSelectByPrimaryKey() throws Exception {
-        UserDto userDto = sqlSession.selectOne("org.goodsManagement.mapper.UserDtoMapper.selectByPrimaryKey", 1);
+        UserDto userDto = sqlSession.selectOne("org.fiveguns.mapper.UserDtoMapper.selectByPrimaryKey", 1);
         System.out.println(userDto);
     }
 

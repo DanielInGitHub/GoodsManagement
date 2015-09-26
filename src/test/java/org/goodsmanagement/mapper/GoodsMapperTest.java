@@ -1,17 +1,11 @@
 package org.goodsmanagement.mapper;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.goodsManagement.dao.impl.DeptdaoImpl;
-import org.goodsManagement.dao.impl.InRepositoryDaoImpl;
-import org.goodsManagement.po.DeptDto;
-import org.goodsManagement.po.GoodsDto;
-import org.goodsManagement.po.InRepositoryDto;
-import org.goodsManagement.service.impl.InRepositoryServiceImpl;
-import org.goodsManagement.vo.InrepositoryGood;
-import org.goodsManagement.vo.Inrepositorysql;
+import org.fiveguns.dao.impl.InRepositoryDaoImpl;
+import org.fiveguns.service.impl.InRepositoryServiceImpl;
+import org.fiveguns.vo.InrepositoryGood;
+import org.fiveguns.vo.Inrepositorysql;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +14,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.InputStream;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -59,11 +48,11 @@ public class GoodsMapperTest {
     @Test
     public void testInsert() throws Exception {
         //测试通过名字查询到货品
-//        List<GoodsDto> users =  sqlSession.selectList("org.goodsManagement.mapper.GoodsDtoMapper.selectByName", "衬衫");
+//        List<GoodsDto> users =  sqlSession.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectByName", "衬衫");
 //        System.out.println(users.size());
-//        GoodsDto good =  sqlSession.selectOne("org.goodsManagement.mapper.GoodsDtoMapper.selectByPrimaryKey", 1);
+//        GoodsDto good =  sqlSession.selectOne("org.fiveguns.mapper.GoodsDtoMapper.selectByPrimaryKey", 1);
 //        good.setGoodnumbers(100);
-//        int i = sqlSession.update("org.goodsManagement.mapper.GoodsDtoMapper.updateByPrimaryKey",good);
+//        int i = sqlSession.update("org.fiveguns.mapper.GoodsDtoMapper.updateByPrimaryKey",good);
 //        InRepositoryDto in = new InRepositoryDto();
 //        in.setInrepositoryid("ad1231");
 //        in.setSuppliers("傻逼");
@@ -80,17 +69,17 @@ public class GoodsMapperTest {
         //将物品信息设置
 //        in.setGoodid(1);
 //        in.setGoodnumber(20);
-//        int i = sqlSession.insert("org.goodsManagement.mapper.InRepositoryDtoMapper.insert", in);
+//        int i = sqlSession.insert("org.fiveguns.mapper.InRepositoryDtoMapper.insert", in);
 //        int i=inRepositoryDaoImpl.insert(in);
 //        System.out.println(i);
 //        String inrepositoryid = "k12312";
-//        List<InrepositoryGood> list= sqlSession.selectList("org.goodsManagement.mapper.InRepositoryDtoMapper.selectingood",inrepositoryid);
+//        List<InrepositoryGood> list= sqlSession.selectList("org.fiveguns.mapper.InRepositoryDtoMapper.selectingood",inrepositoryid);
 //        System.out.println(list.size());
         Inrepositorysql sql = new Inrepositorysql();
         sql.setIntime("2015-09-22");
 //        sql.setSuppliers("傻逼");
 //        sql.setInrepositoryid("ad1231");
-        List<InrepositoryGood> list= sqlSession.selectList("org.goodsManagement.mapper.InRepositoryDtoMapper.selectsql",sql);
+        List<InrepositoryGood> list= sqlSession.selectList("org.fiveguns.mapper.InRepositoryDtoMapper.selectsql",sql);
         System.out.println(list.size());
 
 

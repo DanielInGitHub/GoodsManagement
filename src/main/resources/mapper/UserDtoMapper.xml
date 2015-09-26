@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goodsManagement.mapper.UserDtoMapper">
-    <resultMap id="BaseResultMap" type="org.goodsManagement.po.UserDto">
+<mapper namespace="org.fiveguns.mapper.UserDtoMapper">
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.UserDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -23,14 +23,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.goodsManagement.po.UserDto">
+    <insert id="insert" parameterType="org.fiveguns.po.UserDto">
     insert into user (id, username, password
       )
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
 
-    <insert id="insertSelective" parameterType="org.goodsManagement.po.UserDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.po.UserDto">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -56,7 +56,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.goodsManagement.po.UserDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.UserDto">
         update user
         <set>
             <if test="username != null">
@@ -69,7 +69,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.goodsManagement.po.UserDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.UserDto">
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}
