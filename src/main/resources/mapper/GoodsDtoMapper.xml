@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.fiveguns.mapper.GoodsDtoMapper">
-    <resultMap id="BaseResultMap" type="org.fiveguns.po.GoodsDto">
+    <resultMap id="BaseResultMap" type="org.fiveguns.poo.GoodsDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="goodname" property="goodname" jdbcType="VARCHAR"/>
         <result column="goodunit" property="goodunit" jdbcType="VARCHAR"/>
@@ -29,14 +29,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.fiveguns.po.GoodsDto">
+    <insert id="insert" parameterType="org.fiveguns.poo.GoodsDto">
     insert into goods (id, goodname, goodunit,
       goodnumbers, goodtype)
     values (#{id,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR}, #{goodunit,jdbcType=VARCHAR}, 
       #{goodnumbers,jdbcType=INTEGER}, #{goodtype,jdbcType=VARCHAR})
   </insert>
 
-    <insert id="insertSelective" parameterType="org.fiveguns.po.GoodsDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.poo.GoodsDto">
         insert into goods
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -74,7 +74,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.GoodsDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.poo.GoodsDto">
         update goods
         <set>
             <if test="goodname != null">
@@ -93,7 +93,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.GoodsDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.poo.GoodsDto">
     update goods
     set goodname = #{goodname,jdbcType=VARCHAR},
       goodunit = #{goodunit,jdbcType=VARCHAR},
@@ -102,7 +102,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <select id="selectByName" resultType="org.fiveguns.po.GoodsDto" parameterType="java.lang.String">
+    <select id="selectByName" resultType="org.fiveguns.poo.GoodsDto" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
         from goods

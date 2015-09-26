@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.fiveguns.mapper.DeliveryDtoMapper">
+
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.DeliveryDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="time" property="time" jdbcType="DATE"/>
+        <result column="goodid" property="goodid" jdbcType="INTEGER"/>
+        <result column="number" property="number" jdbcType="INTEGER"/>
+        <result column="operatorid" property="operatorid" jdbcType="INTEGER"/>
+        <result column="deptid" property="deptid" jdbcType="INTEGER"/>
+        <result column="defaultnum" property="defaultnum" jdbcType="INTEGER"/>
+        <result column="comments" property="comments" jdbcType="VARCHAR"/>
+        <result column="deliveryid" property="deliveryid" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, time, goodid, number, operatorid, deptid, defaultnum, comments, deliveryid
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from delivery
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from delivery
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="org.fiveguns.po.DeliveryDto">
+        insert into delivery (id, time, goodid,
+        number, operatorid, deptid,
+        defaultnum, comments, deliveryid)
+        values (#{id,jdbcType=INTEGER}, #{time,jdbcType=DATE}, #{goodid,jdbcType=INTEGER},
+        #{number,jdbcType=INTEGER}, #{operatorid,jdbcType=INTEGER}, #{deptid,jdbcType=INTEGER},
+        #{defaultnum,jdbcType=INTEGER}, #{comments,jdbcType=VARCHAR}, #{deliveryid,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="org.fiveguns.po.DeliveryDto">
+        insert into delivery
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="goodid != null">
+                goodid,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="operatorid != null">
+                operatorid,
+            </if>
+            <if test="deptid != null">
+                deptid,
+            </if>
+            <if test="defaultnum != null">
+                defaultnum,
+            </if>
+            <if test="comments != null">
+                comments,
+            </if>
+            <if test="deliveryid != null">
+                deliveryid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=DATE},
+            </if>
+            <if test="goodid != null">
+                #{goodid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="operatorid != null">
+                #{operatorid,jdbcType=INTEGER},
+            </if>
+            <if test="deptid != null">
+                #{deptid,jdbcType=INTEGER},
+            </if>
+            <if test="defaultnum != null">
+                #{defaultnum,jdbcType=INTEGER},
+            </if>
+            <if test="comments != null">
+                #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="deliveryid != null">
+                #{deliveryid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.DeliveryDto">
+        update delivery
+        <set>
+            <if test="time != null">
+                time = #{time,jdbcType=DATE},
+            </if>
+            <if test="goodid != null">
+                goodid = #{goodid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="operatorid != null">
+                operatorid = #{operatorid,jdbcType=INTEGER},
+            </if>
+            <if test="deptid != null">
+                deptid = #{deptid,jdbcType=INTEGER},
+            </if>
+            <if test="defaultnum != null">
+                defaultnum = #{defaultnum,jdbcType=INTEGER},
+            </if>
+            <if test="comments != null">
+                comments = #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="deliveryid != null">
+                deliveryid = #{deliveryid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.DeliveryDto">
+        update delivery
+        set time = #{time,jdbcType=DATE},
+        goodid = #{goodid,jdbcType=INTEGER},
+        number = #{number,jdbcType=INTEGER},
+        operatorid = #{operatorid,jdbcType=INTEGER},
+        deptid = #{deptid,jdbcType=INTEGER},
+        defaultnum = #{defaultnum,jdbcType=INTEGER},
+        comments = #{comments,jdbcType=VARCHAR},
+        deliveryid = #{deliveryid,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>

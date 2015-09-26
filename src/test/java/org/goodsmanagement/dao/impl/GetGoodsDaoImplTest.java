@@ -1,7 +1,7 @@
 package org.goodsmanagement.dao.impl;
 
 import org.fiveguns.dao.impl.GetGoodsDaoImpl;
-import org.fiveguns.po.GetGoodsDto;
+import org.fiveguns.poo.GetGoodsDto;
 import org.fiveguns.vo.GetGoodsVO;
 import org.junit.Before;
 import org.junit.Test;

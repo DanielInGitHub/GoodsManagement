@@ -1,7 +1,7 @@
 package org.goodsmanagement.dao.impl;
 
 import org.fiveguns.dao.impl.DeptdaoImpl;
-import org.fiveguns.po.DeptDto;
+import org.fiveguns.poo.DeptDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

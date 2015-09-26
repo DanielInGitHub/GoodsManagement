@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.po.GoodsDto;
+import org.fiveguns.poo.GoodsDto;
 import org.fiveguns.vo.GoodsVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package org.fiveguns.po;
+package org.fiveguns.poo;
 
 public class GoodsDto {
     /**

@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.GoodsDaoImpl;
-import org.fiveguns.po.GoodsDto;
+import org.fiveguns.poo.GoodsDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.GoodsVo;
 import org.fiveguns.vo.Warehouse;

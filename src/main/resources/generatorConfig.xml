@@ -36,10 +36,10 @@
         </sqlMapGenerator>
 
         <!--mapper接口类的位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.fiveguns.mapper"
-                             targetProject="./src/main/java">
-            <property name="enableSubPackages" value="false"/>
-        </javaClientGenerator>
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="org.fiveguns.mapper"-->
+                             <!--targetProject="./src/main/java">-->
+            <!--<property name="enableSubPackages" value="false"/>-->
+        <!--</javaClientGenerator>-->
 
         <table schema="CommodityManagement" tableName="Department" domainObjectName="DepartmentDto"
                enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"

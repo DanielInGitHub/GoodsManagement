@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.OutRepositoryDaoImpl;
-import org.fiveguns.po.OutRepositoryDto;
+import org.fiveguns.poo.OutRepositoryDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.beans.factory.annotation.Autowired;

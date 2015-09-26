@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.StaffDaoImpl;
-import org.fiveguns.po.StaffDto;
+import org.fiveguns.poo.StaffDto;
 import org.fiveguns.service.BaseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.po.OutRepositoryDto;
+import org.fiveguns.poo.OutRepositoryDto;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.stereotype.Component;
 

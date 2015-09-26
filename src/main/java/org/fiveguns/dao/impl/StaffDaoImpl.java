@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.po.StaffDto;
+import org.fiveguns.poo.StaffDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

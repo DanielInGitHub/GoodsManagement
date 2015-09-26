@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.InRepositoryDaoImpl;
-import org.fiveguns.po.InRepositoryDto;
+import org.fiveguns.poo.InRepositoryDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.service.impl.PoiUtils.InRepositoryUtils;
 import org.fiveguns.vo.InrepositoryGood;

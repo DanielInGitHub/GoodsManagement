@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.GetGoodsDaoImpl;
-import org.fiveguns.po.GetGoodsDto;
+import org.fiveguns.poo.GetGoodsDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.GetGoodsVO;
 import org.springframework.beans.factory.annotation.Autowired;

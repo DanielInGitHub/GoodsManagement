@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.fiveguns.mapper.InRepositoryDtoMapper">
-    <resultMap id="BaseResultMap" type="org.fiveguns.po.InRepositoryDto">
+    <resultMap id="BaseResultMap" type="org.fiveguns.poo.InRepositoryDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="intime" property="intime" jdbcType="DATE"/>
         <result column="goodid" property="goodid" jdbcType="INTEGER"/>
@@ -29,7 +29,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="org.fiveguns.po.InRepositoryDto">
+    <insert id="insert" parameterType="org.fiveguns.poo.InRepositoryDto">
     insert into inrepository (id, intime, goodid,
       goodnumber, suppliers, linkman, 
       phone, operatorid, comments,inrepositoryid
@@ -40,7 +40,7 @@
       )
   </insert>
 
-    <insert id="insertSelective" parameterType="org.fiveguns.po.InRepositoryDto">
+    <insert id="insertSelective" parameterType="org.fiveguns.poo.InRepositoryDto">
         insert into inrepository
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -108,7 +108,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.InRepositoryDto">
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.poo.InRepositoryDto">
         update inrepository
         <set>
             <if test="intime != null">
@@ -142,7 +142,7 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.InRepositoryDto">
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.poo.InRepositoryDto">
     update inrepository
     set intime = #{intime,jdbcType=DATE},
       goodid = #{goodid,jdbcType=INTEGER},
@@ -165,7 +165,7 @@
         WHERE goods.id = inrepository.goodid
         AND inrepository.inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
     </select>
-    <select id="selectall" resultType="org.fiveguns.po.InRepositoryDto" >
+    <select id="selectall" resultType="org.fiveguns.poo.InRepositoryDto" >
         select
         <include refid="Base_Column_List"/>
         from inrepository

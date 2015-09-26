@@ -1,7 +1,7 @@
 package org.fiveguns.dao.impl;
 
 import org.fiveguns.dao.BasedaoA;
-import org.fiveguns.po.InRepositoryDto;
+import org.fiveguns.poo.InRepositoryDto;
 import org.fiveguns.vo.InrepositoryGood;
 import org.fiveguns.vo.InrepositoryShow;
 import org.fiveguns.vo.Inrepositorysql;
