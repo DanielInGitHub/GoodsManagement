@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.DepartmentdaoImpl;
-import org.fiveguns.poo.DeptDto;
+import org.fiveguns.po.DepartmentDto;
 import org.fiveguns.service.BaseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,34 +11,34 @@ import java.util.List;
 /**
  * Created by admin on 2015/9/20.
  */
-public class DeptServiceImpl implements BaseServiceI<DeptDto> {
+public class DeptServiceImpl implements BaseServiceI<DepartmentDto> {
 
     @Autowired
     @Qualifier("deptDao")
     private DepartmentdaoImpl deptdao;
 
-    public void addEntity(DeptDto deptDto) {
-        deptdao.insert(deptDto);
+    public void addEntity(DepartmentDto DepartmentDto) {
+        deptdao.insert(DepartmentDto);
     }
 
-    public void modifyEntity(DeptDto deptDto) {
-        deptdao.updateByPrimaryKeySelective(deptDto);
+    public void modifyEntity(DepartmentDto DepartmentDto) {
+        deptdao.updateByPrimaryKeySelective(DepartmentDto);
     }
 
-    public DeptDto loadEntity(int id) {
+    public DepartmentDto loadEntity(int id) {
         return null;
     }
 
-    public DeptDto getEntity(int id) {
+    public DepartmentDto getEntity(int id) {
         return deptdao.selectByPrimaryKey(id);
     }
 
-    public List<DeptDto> getAllEntities() {
+    public List<DepartmentDto> getAllEntities() {
         return null;
     }
 
-    public void deleteEntity(DeptDto deptDto) {
-        deptdao.deleteByPrimaryKey(deptDto.getId());
+    public void deleteEntity(DepartmentDto DepartmentDto) {
+        deptdao.deleteByPrimaryKey(DepartmentDto.getId());
     }
 }
 

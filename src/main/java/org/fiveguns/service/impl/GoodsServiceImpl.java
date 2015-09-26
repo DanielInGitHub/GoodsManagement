@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.CommoditydaoImpl;
-import org.fiveguns.poo.GoodsDto;
+import org.fiveguns.po.CommodityDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.GoodsVo;
 import org.fiveguns.vo.Warehouse;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by lifei on 2015/9/20.
  */
 @Service
-public class GoodsServiceImpl implements BaseServiceI<GoodsDto> {
+public class GoodsServiceImpl implements BaseServiceI<CommodityDto> {
     @Autowired
     @Qualifier("commoditydaoImpl")
     private CommoditydaoImpl commoditydaoImpl;
@@ -23,10 +23,10 @@ public class GoodsServiceImpl implements BaseServiceI<GoodsDto> {
     /**
      * 添加实体
      *
-     * @param goodsDto 实体对象
+     * @param CommodityDto 实体对象
      */
-    public void addEntity(GoodsDto goodsDto) {
-        commoditydaoImpl.insert(goodsDto);
+    public void addEntity(CommodityDto CommodityDto) {
+        commoditydaoImpl.insert(CommodityDto);
     }
 
     /**
@@ -36,7 +36,7 @@ public class GoodsServiceImpl implements BaseServiceI<GoodsDto> {
      * @return goods
      * 同意货品名称的集合
      */
-    public List<GoodsDto> getEntitiesByname(String name) {
+    public List<CommodityDto> getEntitiesByname(String name) {
         return commoditydaoImpl.selectByName(name);
     }
 
@@ -57,24 +57,24 @@ public class GoodsServiceImpl implements BaseServiceI<GoodsDto> {
         commoditydaoImpl.deleteByPrimaryKey(id);
     }
 
-    public List<GoodsDto> getAllEntities() {
+    public List<CommodityDto> getAllEntities() {
         return null;
     }
 
-    public void deleteEntity(GoodsDto goodsDto) {
+    public void deleteEntity(CommodityDto CommodityDto) {
     }
 
-    public GoodsDto loadEntity(int id) {
+    public CommodityDto loadEntity(int id) {
         return null;
     }
 
     /**
      * 修改实体
      *
-     * @param goodsDto 实体对象(不需指定所有的键)
+     * @param CommodityDto 实体对象(不需指定所有的键)
      */
-    public void modifyEntity(GoodsDto goodsDto) {
-        commoditydaoImpl.updateByPrimaryKey(goodsDto);
+    public void modifyEntity(CommodityDto CommodityDto) {
+        commoditydaoImpl.updateByPrimaryKey(CommodityDto);
     }
 
     /**
@@ -83,7 +83,7 @@ public class GoodsServiceImpl implements BaseServiceI<GoodsDto> {
      * @param id 实体对象的id
      * @return
      */
-    public GoodsDto getEntity(int id) {
+    public CommodityDto getEntity(int id) {
         return commoditydaoImpl.selectByPrimaryKey(id);
     }
 

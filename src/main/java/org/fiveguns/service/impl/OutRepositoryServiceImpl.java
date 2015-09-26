@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.DeliverydaoImpl;
-import org.fiveguns.poo.OutRepositoryDto;
+import org.fiveguns.po.DeliveryDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,33 +15,33 @@ import java.util.List;
  * Created by Johnny on 2015/9/26.
  */
 @Service
-public class OutRepositoryServiceImpl implements BaseServiceI<OutRepositoryDto> {
+public class OutRepositoryServiceImpl implements BaseServiceI<DeliveryDto> {
     @Autowired
     @Qualifier("deliverydaoImpl")
     private DeliverydaoImpl deliverydaoImpl;
 
-    public void addEntity(OutRepositoryDto outRepositoryDto) {
-        deliverydaoImpl.insert(outRepositoryDto);
+    public void addEntity(DeliveryDto DeliveryDto) {
+        deliverydaoImpl.insert(DeliveryDto);
     }
 
-    public void modifyEntity(OutRepositoryDto outRepositoryDto) {
-        deliverydaoImpl.updateByPrimaryKeySelective(outRepositoryDto);
+    public void modifyEntity(DeliveryDto DeliveryDto) {
+        deliverydaoImpl.updateByPrimaryKeySelective(DeliveryDto);
     }
 
-    public OutRepositoryDto loadEntity(int id) {
+    public DeliveryDto loadEntity(int id) {
         return null;
     }
 
-    public OutRepositoryDto getEntity(int id) {
+    public DeliveryDto getEntity(int id) {
         return deliverydaoImpl.selectByPrimaryKey(id);
     }
 
-    public List<OutRepositoryDto> getAllEntities() {
+    public List<DeliveryDto> getAllEntities() {
         return null;
     }
 
-    public void deleteEntity(OutRepositoryDto outRepositoryDto) {
-        deliverydaoImpl.deleteByPrimaryKey(outRepositoryDto.getId());
+    public void deleteEntity(DeliveryDto DeliveryDto) {
+        deliverydaoImpl.deleteByPrimaryKey(DeliveryDto.getId());
     }
 
     /**

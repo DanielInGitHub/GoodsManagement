@@ -1,7 +1,7 @@
 package org.fiveguns.service.impl;
 
 import org.fiveguns.dao.impl.StoragedaoImpl;
-import org.fiveguns.poo.InRepositoryDto;
+import org.fiveguns.po.StorageDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.service.impl.PoiUtils.InRepositoryUtils;
 import org.fiveguns.vo.InrepositoryGood;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InRepositoryServiceImpl implements BaseServiceI<InRepositoryDto> {
+public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
 
     @Autowired
     @Qualifier("storagedaoImpl")
@@ -34,28 +34,28 @@ public class InRepositoryServiceImpl implements BaseServiceI<InRepositoryDto> {
         this.pagecount = pagecount;
     }
 
-    public void addEntity(InRepositoryDto inRepositoryDto) {
-        storagedaoImpl.insert(inRepositoryDto);
+    public void addEntity(StorageDto StorageDto) {
+        storagedaoImpl.insert(StorageDto);
     }
 
-    public void modifyEntity(InRepositoryDto inRepositoryDto) {
-        storagedaoImpl.updateByPrimaryKey(inRepositoryDto);
+    public void modifyEntity(StorageDto StorageDto) {
+        storagedaoImpl.updateByPrimaryKey(StorageDto);
     }
 
-    public InRepositoryDto loadEntity(int id) {
+    public StorageDto loadEntity(int id) {
         return null;
     }
 
-    public InRepositoryDto getEntity(int id) {
+    public StorageDto getEntity(int id) {
         return storagedaoImpl.selectByPrimaryKey(id);
     }
 
-    public List<InRepositoryDto> getAllEntities() {
+    public List<StorageDto> getAllEntities() {
         return null;
     }
 
-    public void deleteEntity(InRepositoryDto inRepositoryDto) {
-        storagedaoImpl.deleteByPrimaryKey(inRepositoryDto.getId());
+    public void deleteEntity(StorageDto StorageDto) {
+        storagedaoImpl.deleteByPrimaryKey(StorageDto.getId());
     }
 
     /**
