@@ -31,7 +31,7 @@
         </javaModelGenerator>
 
         <!--生成的mapper的位置-->
-        <sqlMapGenerator targetPackage="org.fiveguns.mapperr" targetProject="./src/main/java">
+        <sqlMapGenerator targetPackage="org.fiveguns.mapper" targetProject="./src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 

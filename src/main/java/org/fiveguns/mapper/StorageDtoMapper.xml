@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.fiveguns.mapper.StorageDtoMapper">
+
+    <resultMap id="BaseResultMap" type="org.fiveguns.po.StorageDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="time" property="time" jdbcType="DATE"/>
+        <result column="goodid" property="goodid" jdbcType="INTEGER"/>
+        <result column="number" property="number" jdbcType="INTEGER"/>
+        <result column="supplycompany" property="supplycompany" jdbcType="VARCHAR"/>
+        <result column="supplier" property="supplier" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="operatorid" property="operatorid" jdbcType="INTEGER"/>
+        <result column="comments" property="comments" jdbcType="VARCHAR"/>
+        <result column="storageid" property="storageid" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, time, goodid, number, supplycompany, supplier, phone, operatorid, comments, storageid
+  </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from storage
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from storage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+    <insert id="insert" parameterType="org.fiveguns.po.StorageDto">
+    insert into storage (id, time, goodid,
+      number, supplycompany, supplier,
+      phone, operatorid, comments,
+      storageid)
+    values (#{id,jdbcType=INTEGER}, #{time,jdbcType=DATE}, #{goodid,jdbcType=INTEGER},
+      #{number,jdbcType=INTEGER}, #{supplycompany,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{operatorid,jdbcType=INTEGER}, #{comments,jdbcType=VARCHAR},
+      #{storageid,jdbcType=VARCHAR})
+  </insert>
+
+    <insert id="insertSelective" parameterType="org.fiveguns.po.StorageDto">
+        insert into storage
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="goodid != null">
+                goodid,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="supplycompany != null">
+                supplycompany,
+            </if>
+            <if test="supplier != null">
+                supplier,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="operatorid != null">
+                operatorid,
+            </if>
+            <if test="comments != null">
+                comments,
+            </if>
+            <if test="storageid != null">
+                storageid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=DATE},
+            </if>
+            <if test="goodid != null">
+                #{goodid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="supplycompany != null">
+                #{supplycompany,jdbcType=VARCHAR},
+            </if>
+            <if test="supplier != null">
+                #{supplier,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="operatorid != null">
+                #{operatorid,jdbcType=INTEGER},
+            </if>
+            <if test="comments != null">
+                #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="storageid != null">
+                #{storageid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="org.fiveguns.po.StorageDto">
+        update storage
+        <set>
+            <if test="time != null">
+                time = #{time,jdbcType=DATE},
+            </if>
+            <if test="goodid != null">
+                goodid = #{goodid,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="supplycompany != null">
+                supplycompany = #{supplycompany,jdbcType=VARCHAR},
+            </if>
+            <if test="supplier != null">
+                supplier = #{supplier,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="operatorid != null">
+                operatorid = #{operatorid,jdbcType=INTEGER},
+            </if>
+            <if test="comments != null">
+                comments = #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="storageid != null">
+                storageid = #{storageid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="org.fiveguns.po.StorageDto">
+    update storage
+    set time = #{time,jdbcType=DATE},
+      goodid = #{goodid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      supplycompany = #{supplycompany,jdbcType=VARCHAR},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      operatorid = #{operatorid,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=VARCHAR},
+      storageid = #{storageid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>
