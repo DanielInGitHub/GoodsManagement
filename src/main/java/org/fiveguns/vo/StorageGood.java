@@ -4,6 +4,7 @@ package org.fiveguns.vo;
  * Created by lifei on 2015/9/22.
  */
 public class StorageGood {
+
     private String name;
     private String unit;
     private Integer number;

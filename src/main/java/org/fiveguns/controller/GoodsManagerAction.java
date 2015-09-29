@@ -10,7 +10,6 @@ import org.fiveguns.vo.CommodityVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,11 +89,11 @@ public class GoodsManagerAction extends ActionSupport implements ServletRequestA
     }
 
     //显示�?有物品信�?
-    public String getAll() {
-        list = goodsServiceImpl.getEntitieskind();
-        System.out.println("物品的种类大小：" + list.size());
-        return SUCCESS;
-    }
+//    public String getAll() {
+//        list = goodsServiceImpl.getEntitiesByType();
+//        System.out.println("物品的种类大小：" + list.size());
+//        return SUCCESS;
+//    }
 
     //根据物品名称查询
     public String selectByName() {
@@ -119,7 +118,7 @@ public class GoodsManagerAction extends ActionSupport implements ServletRequestA
         System.out.println("删除的物品名称：" + goodName);
         listGood = goodsServiceImpl.getEntitiesByname(goodName);
         goodsServiceImpl.deleteEntity(listGood.get(0).getId());
-        getAll();
+//        getAll();
         return "showGood";
     }
 

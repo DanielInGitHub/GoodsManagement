@@ -99,14 +99,23 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <select id="selectByName" resultType="org.fiveguns.po.CommodityDto" parameterType="java.lang.String">
+    <select id="selectByName" resultType="org.fiveguns.po.CommodityDto"
+            parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
         from commodity
         where name = #{name,jdbcType=VARCHAR}
     </select>
 
-    <select id="selectAllByPage" resultType="CommodityDto">
+    <select id="selectAll" resultType="CommodityDto">
         SELECT * FROM commodity
     </select>
+
+    <select id="counts" resultType="int">
+        SELECT COUNT(*) FROM commodity
+    </select>
+    <!--<select id="selectGroupByName" resultType="org.fiveguns.po.CommodityDto">-->
+    <!--select name, unit from commodity-->
+    <!--GROUP BY name-->
+    <!--</select>-->
 </mapper>

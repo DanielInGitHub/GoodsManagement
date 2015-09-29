@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by lifei on 2015/9/20.
- */
 @Service
 public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
 
@@ -56,6 +53,10 @@ public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
         return commodityDaoImpl.selectByPrimaryKey(id);
     }
 
+    /*************************************************************/
+    /*---------------------手动添加的方法--------------------------*/
+    /*************************************************************/
+
     /**
      * 通过货品名称来查询
      *
@@ -68,14 +69,28 @@ public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
     }
 
     /**
-     * 查看商品种类
+     * 分页获取所有的物品信息
      *
-     * @return goods
-     * 已经分类的Goods集合
+     * @param page
+     * @param counts
+     * @return
      */
-    public List<CommodityVo> getEntitieskind() {
-        return commodityDaoImpl.getEntitieskind();
+    public List<CommodityDto> getAllCommoditiesByPage(int page, int counts) {
+        return commodityDaoImpl.getAllCommoditiesByPage(page, counts);
     }
+
+    public int getCounts() {
+        return commodityDaoImpl.getCounts();
+    }
+//    /**
+//     * 查看商品种类
+//     *
+//     * @return goods
+//     * 已经分类的Goods集合
+//     */
+//    public List<CommodityVo> getEntitiesByType() {
+//        return commodityDaoImpl.getEntitiesByType();
+//    }
 
 
     /**

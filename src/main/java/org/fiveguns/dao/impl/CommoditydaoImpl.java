@@ -3,15 +3,12 @@ package org.fiveguns.dao.impl;
 import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.CommodityDto;
-import org.fiveguns.vo.CommodityVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * Created by lifei on 2015/9/20.
- */
+
 @Component
 public class CommodityDaoImpl extends BasedaoA<CommodityDto> {
     /**
@@ -80,6 +77,10 @@ public class CommodityDaoImpl extends BasedaoA<CommodityDto> {
         return sessionTemplate.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKey", record);
     }
 
+    /*************************************************************/
+    /*---------------------手动添加的方法--------------------------*/
+    /*************************************************************/
+
     /**
      * 通过货品名称来查询
      *
@@ -92,15 +93,30 @@ public class CommodityDaoImpl extends BasedaoA<CommodityDto> {
     }
 
     /**
-     * 通过货品名称来查询
+     * 分页获取所有的物品信息
      *
-     * @return goods
-     * 已经分类的Goods集合
+     * @param page
+     * @param counts
+     * @return
      */
-    public List<CommodityVo> getEntitieskind() {
-        List<CommodityVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
-        return goods;
+    public List<CommodityDto> getAllCommoditiesByPage(int page, int counts) {
+        PageHelper.startPage(page, counts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAll");
     }
+
+    public int getCounts() {
+        return sessionTemplate.selectOne("org.fiveguns.mapper.CommodityDtoMapper.counts");
+    }
+//    /**
+//     * 通过货品名称来查询
+//     *
+//     * @return goods
+//     * 已经分类的Goods集合
+//     */
+//    public List<CommodityVo> getEntitiesByType() {
+//        List<CommodityVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
+//        return goods;
+//    }
 
     /**
      * 获取库房盘存信息
