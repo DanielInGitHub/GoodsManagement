@@ -1,6 +1,8 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
+import org.fiveguns.po.CommodityDto;
 import org.fiveguns.po.DeliveryDto;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.stereotype.Component;
@@ -12,7 +14,7 @@ import java.util.List;
  */
 
 @Component
-public class DeliverydaoImpl extends BasedaoA<DeliveryDto> {
+public class DeliveryDaoImpl extends BasedaoA<DeliveryDto> {
     /**
      * 通过主键获取实体
      *
@@ -65,6 +67,20 @@ public class DeliverydaoImpl extends BasedaoA<DeliveryDto> {
     public int updateByPrimaryKeySelective(DeliveryDto record) {
         return sessionTemplate.update("org.fiveguns.mapper.DeliveryDtoMapper.updateByPrimaryKeySelective", record);
     }
+
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<DeliveryDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
+    }
+
     /**
      * 通过主键来更新实体类
      *

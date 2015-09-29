@@ -1,5 +1,6 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.StaffDto;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 
 @Component
-public class StaffdaoImpl extends BasedaoA<StaffDto> {
+public class StaffDaoImpl extends BasedaoA<StaffDto> {
     /**
      * 通过主键获取实体
      *
@@ -85,5 +86,18 @@ public class StaffdaoImpl extends BasedaoA<StaffDto> {
      */
     public List<StaffDto> selectAll() {
         return sessionTemplate.selectList("org.fiveguns.mapper.StaffDtoMapper.selectAll");
+    }
+
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<StaffDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.StaffDtoMapper.selectAllByPage");
     }
 }

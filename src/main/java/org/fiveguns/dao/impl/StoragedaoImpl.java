@@ -1,5 +1,6 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.StorageDto;
 import org.fiveguns.vo.InrepositoryGood;
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by lifei on 2015/9/20.
  */
 @Component
-public class StoragedaoImpl extends BasedaoA<StorageDto> {
+public class StorageDaoImpl extends BasedaoA<StorageDto> {
     private int pagesize = 3;
 
     public int getPagesize() {
@@ -149,5 +150,18 @@ public class StoragedaoImpl extends BasedaoA<StorageDto> {
      */
     public int selectcount() {
         return sessionTemplate.selectOne("org.fiveguns.mapper.StorageDtoMapper.selectcountpage");
+    }
+
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<StorageDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
     }
 }

@@ -120,4 +120,14 @@ public class StaffDto {
     public void setDeptid(Integer deptid) {
         this.deptid = deptid;
     }
+
+    @Override
+    public String toString() {
+        return "StaffDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", deptid=" + deptid +
+                '}';
+    }
 }

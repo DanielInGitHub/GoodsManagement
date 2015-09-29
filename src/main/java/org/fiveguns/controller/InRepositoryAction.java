@@ -2,7 +2,7 @@ package org.fiveguns.controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.*;
-import org.fiveguns.service.impl.InRepositoryServiceImpl;
+import org.fiveguns.service.impl.StorageServiceImpl;
 import org.fiveguns.service.impl.PoiUtils.InRepositoryUtils;
 import org.fiveguns.vo.InrepositoryGood;
 import org.fiveguns.vo.InrepositoryShow;
@@ -42,13 +42,13 @@ public class InRepositoryAction extends ActionSupport {
 
 
     @Autowired
-    private InRepositoryServiceImpl inRepositoryServiceImpl;
+    private StorageServiceImpl storageServiceImpl;
     @Autowired
     private InRepositoryUtils inRepositoryUtils;
 
     public String getAll() {
-        list = inRepositoryServiceImpl.selectallmes();
-        countpage = inRepositoryServiceImpl.selectcountpage();
+        list = storageServiceImpl.selectallmes();
+        countpage = storageServiceImpl.selectcountpage();
         System.out.println(countpage);
         System.out.println("拿到所有信息的方法");
         return "getAll";
@@ -78,7 +78,7 @@ public class InRepositoryAction extends ActionSupport {
 //        Inrepositorysql sql = new Inrepositorysql();
 //        sql.setIntime("2015-09-19");
 //        sql.setSuppliers("傻逼");
-        list = inRepositoryServiceImpl.selectbysearch(sql);
+        list = storageServiceImpl.selectbysearch(sql);
         System.out.println(sql.getIntime());
         System.out.println(list.size());
         return "getAll";
@@ -90,8 +90,8 @@ public class InRepositoryAction extends ActionSupport {
      */
     public String selectInrepositoryGoods(){
         System.out.println(inrepositoryid);
-        listGoods = inRepositoryServiceImpl.selectallingood(inrepositoryid);
-        inrepositoryShow = inRepositoryServiceImpl.selectmesInprositoryId(inrepositoryid);
+        listGoods = storageServiceImpl.selectallingood(inrepositoryid);
+        inrepositoryShow = storageServiceImpl.selectmesInprositoryId(inrepositoryid);
         System.out.println(listGoods.size());
         return "showmessage";
     }
@@ -156,12 +156,12 @@ public class InRepositoryAction extends ActionSupport {
         this.suppliers = suppliers;
     }
 
-    public InRepositoryServiceImpl getInRepositoryServiceImpl() {
-        return inRepositoryServiceImpl;
+    public StorageServiceImpl getStorageServiceImpl() {
+        return storageServiceImpl;
     }
 
-    public void setInRepositoryServiceImpl(InRepositoryServiceImpl inRepositoryServiceImpl) {
-        this.inRepositoryServiceImpl = inRepositoryServiceImpl;
+    public void setStorageServiceImpl(StorageServiceImpl storageServiceImpl) {
+        this.storageServiceImpl = storageServiceImpl;
     }
     public InrepositoryShow getInrepositoryShow() {
         return inrepositoryShow;

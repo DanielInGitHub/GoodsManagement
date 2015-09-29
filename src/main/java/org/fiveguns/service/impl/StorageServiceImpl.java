@@ -1,6 +1,6 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.StoragedaoImpl;
+import org.fiveguns.dao.impl.StorageDaoImpl;
 import org.fiveguns.po.StorageDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.service.impl.PoiUtils.InRepositoryUtils;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
+public class StorageServiceImpl implements BaseServiceI<StorageDto> {
 
     @Autowired
-    @Qualifier("storagedaoImpl")
-    private StoragedaoImpl storagedaoImpl;
+    @Qualifier("storageDaoImpl")
+    private StorageDaoImpl storageDaoImpl;
 
     @Autowired
     @Qualifier("inRepositoryUtils")
@@ -35,11 +35,11 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
     }
 
     public void addEntity(StorageDto StorageDto) {
-        storagedaoImpl.insert(StorageDto);
+        storageDaoImpl.insert(StorageDto);
     }
 
     public void modifyEntity(StorageDto StorageDto) {
-        storagedaoImpl.updateByPrimaryKey(StorageDto);
+        storageDaoImpl.updateByPrimaryKey(StorageDto);
     }
 
     public StorageDto loadEntity(int id) {
@@ -47,7 +47,7 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
     }
 
     public StorageDto getEntity(int id) {
-        return storagedaoImpl.selectByPrimaryKey(id);
+        return storageDaoImpl.selectByPrimaryKey(id);
     }
 
     public List<StorageDto> getAllEntities() {
@@ -55,7 +55,7 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
     }
 
     public void deleteEntity(StorageDto StorageDto) {
-        storagedaoImpl.deleteByPrimaryKey(StorageDto.getId());
+        storageDaoImpl.deleteByPrimaryKey(StorageDto.getId());
     }
 
     /**
@@ -69,7 +69,7 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
      * 查看所有的入库信息
      */
     public List<InrepositoryShow> selectallmes() {
-        return storagedaoImpl.selectall();
+        return storageDaoImpl.selectall();
     }
 
     /**
@@ -77,13 +77,13 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
      */
     public List<InrepositoryShow> selectbysearch(Inrepositorysql sql) {
         System.out.println(sql.getIntime());
-        return storagedaoImpl.selectsearch(sql);
+        return storageDaoImpl.selectsearch(sql);
     }
     /**
      * 按照入库单号查询所有入库的货物，入库数量，以及详细的入库单信息，在另一个jsp页面显示时调用
      */
     public List<InrepositoryGood> selectallingood(String inrepositoryid){
-        return  storagedaoImpl.selectallingood(inrepositoryid);
+        return  storageDaoImpl.selectallingood(inrepositoryid);
     }
 
     /**
@@ -92,7 +92,7 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
      * @return
      */
     public InrepositoryShow selectmesInprositoryId(String inprositoryId) {
-        return  storagedaoImpl.selectmesInprositoryId(inprositoryId);
+        return  storageDaoImpl.selectmesInprositoryId(inprositoryId);
     }
 
 
@@ -103,7 +103,7 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
      */
     public int selectcountpage() {
         int pagesize = 3;
-        int count = storagedaoImpl.selectcount();
+        int count = storageDaoImpl.selectcount();
         if(count%pagesize!=0){
 
             pagecount = (count/pagesize)+1;
@@ -119,6 +119,6 @@ public class InRepositoryServiceImpl implements BaseServiceI<StorageDto> {
      * @return
      */
     public List<InrepositoryShow> selectbypage(int page) {
-        return  storagedaoImpl.selectbypage(page);
+        return  storageDaoImpl.selectbypage(page);
     }
 }

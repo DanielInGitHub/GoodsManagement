@@ -105,7 +105,8 @@
         from goods
         where goodname = #{name,jdbcType=VARCHAR}
     </select>
-    <select id="selectGroupByName" resultType="org.fiveguns.vo.GoodsVo" >
+
+    <select id="selectGroupByName" resultType="org.fiveguns.vo.GoodsVo">
         select
         goodname ,
         goodunit
@@ -113,4 +114,7 @@
         GROUP BY goodname
     </select>
 
+    <select id="selectAllByPage" resultType="CommodityDto">
+        SELECT * FROM commodity
+    </select>
 </mapper>

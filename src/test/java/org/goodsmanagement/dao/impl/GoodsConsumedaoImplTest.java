@@ -1,6 +1,6 @@
 package org.goodsmanagement.dao.impl;
 
-import org.fiveguns.dao.impl.GoodsConsumedaoImpl;
+import org.fiveguns.dao.impl.GoodsConsumeDaoImpl;
 import org.fiveguns.vo.GetGoodsVO;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,15 +12,15 @@ import java.util.List;
 /**
  * Created by johnny on 2015/9/23.
  */
-public class GoodsConsumedaoImplTest {
+public class GoodsConsumeDaoImplTest {
 
     private ApplicationContext applicationContext;
-    private GoodsConsumedaoImpl getGoodsDao;
+    private GoodsConsumeDaoImpl getGoodsDao;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        getGoodsDao = (GoodsConsumedaoImpl) applicationContext.getBean("getGoodsDaoImpl");
+        getGoodsDao = (GoodsConsumeDaoImpl) applicationContext.getBean("getGoodsDaoImpl");
     }
 
     @Test

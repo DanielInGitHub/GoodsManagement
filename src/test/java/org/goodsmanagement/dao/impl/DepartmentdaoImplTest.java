@@ -1,6 +1,6 @@
 package org.goodsmanagement.dao.impl;
 
-import org.fiveguns.dao.impl.DepartmentdaoImpl;
+import org.fiveguns.dao.impl.DepartmentDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -9,15 +9,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by never on 2015/9/20.
  */
-public class DepartmentdaoImplTest {
+public class DepartmentDaoImplTest {
 
     private ApplicationContext applicationContext;
-    private DepartmentdaoImpl deptdao;
+    private DepartmentDaoImpl deptdao;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        deptdao = (DepartmentdaoImpl) applicationContext.getBean("deptdaoImpl");
+        deptdao = (DepartmentDaoImpl) applicationContext.getBean("deptdaoImpl");
     }
 
     @Test

@@ -1,6 +1,6 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.StaffdaoImpl;
+import org.fiveguns.dao.impl.StaffDaoImpl;
 import org.fiveguns.po.StaffDto;
 import org.fiveguns.service.BaseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,15 @@ import java.util.List;
 @Service
 public class StaffServiceImpl implements BaseServiceI<StaffDto> {
     @Autowired
-    @Qualifier("staffdaoImpl")
-    private StaffdaoImpl staffdaoImpl;
+    @Qualifier("staffDaoImpl")
+    private StaffDaoImpl staffDaoImpl;
     /**
      * 添加实体
      *
      * @param staffDto 实体对象
      */
     public void addEntity(StaffDto staffDto) {
-        staffdaoImpl.insert(staffDto);
+        staffDaoImpl.insert(staffDto);
     }
 
     /**
@@ -32,7 +32,7 @@ public class StaffServiceImpl implements BaseServiceI<StaffDto> {
      * @param staffDto 实体对象(不需指定所有的键)
      */
     public void modifyEntity(StaffDto staffDto) {
-        staffdaoImpl.updateByPrimaryKey(staffDto);
+        staffDaoImpl.updateByPrimaryKey(staffDto);
     }
 
     /**
@@ -42,7 +42,7 @@ public class StaffServiceImpl implements BaseServiceI<StaffDto> {
      * @return
      */
     public StaffDto getEntity(int id) {
-        return staffdaoImpl.selectByPrimaryKey(id);
+        return staffDaoImpl.selectByPrimaryKey(id);
     }
 
     /**
@@ -51,14 +51,14 @@ public class StaffServiceImpl implements BaseServiceI<StaffDto> {
      * @return 所有员工的集合
      */
     public List<StaffDto> getAllEntities() {
-        return staffdaoImpl.selectAll();
+        return staffDaoImpl.selectAll();
     }
 
     /**
      * 删除指定ID的商品
      */
     public void deleteEntity(int id) {
-        staffdaoImpl.deleteByPrimaryKey(id);
+        staffDaoImpl.deleteByPrimaryKey(id);
     }
 
     public void deleteEntity(StaffDto staffDto) {

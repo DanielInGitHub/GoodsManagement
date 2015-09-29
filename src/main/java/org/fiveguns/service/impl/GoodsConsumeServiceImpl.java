@@ -1,6 +1,6 @@
 package org.fiveguns.service.impl;
 
-import org.fiveguns.dao.impl.GoodsConsumedaoImpl;
+import org.fiveguns.dao.impl.GoodsConsumeDaoImpl;
 import org.fiveguns.po.GoodsConsumeDto;
 import org.fiveguns.service.BaseServiceI;
 import org.fiveguns.vo.GetGoodsVO;
@@ -15,17 +15,17 @@ import java.util.List;
  * Created by johnny on 2015/9/23.
  */
 @Service
-public class GetGoodsServiceImpl implements BaseServiceI<GoodsConsumeDto> {
+public class GoodsConsumeServiceImpl implements BaseServiceI<GoodsConsumeDto> {
     @Autowired
-    @Qualifier("goodsConsumedaoImpl")
-    private GoodsConsumedaoImpl goodsConsumedaoImpl;
+    @Qualifier("goodsConsumeDaoImpl")
+    private GoodsConsumeDaoImpl goodsConsumeDaoImpl;
 
     public void addEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumedaoImpl.insert(GoodsConsumeDto);
+        goodsConsumeDaoImpl.insert(GoodsConsumeDto);
     }
 
     public void modifyEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumedaoImpl.updateByPrimaryKey(GoodsConsumeDto);
+        goodsConsumeDaoImpl.updateByPrimaryKey(GoodsConsumeDto);
     }
 
     public GoodsConsumeDto loadEntity(int id) {
@@ -33,7 +33,7 @@ public class GetGoodsServiceImpl implements BaseServiceI<GoodsConsumeDto> {
     }
 
     public GoodsConsumeDto getEntity(int id) {
-        return goodsConsumedaoImpl.selectByPrimaryKey(id);
+        return goodsConsumeDaoImpl.selectByPrimaryKey(id);
     }
 
     public List<GoodsConsumeDto> getAllEntities() {
@@ -41,7 +41,7 @@ public class GetGoodsServiceImpl implements BaseServiceI<GoodsConsumeDto> {
     }
 
     public void deleteEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumedaoImpl.deleteByPrimaryKey(GoodsConsumeDto.getId());
+        goodsConsumeDaoImpl.deleteByPrimaryKey(GoodsConsumeDto.getId());
     }
 
     /**
@@ -50,7 +50,7 @@ public class GetGoodsServiceImpl implements BaseServiceI<GoodsConsumeDto> {
      * @return vo
      */
     public GetGoodsVO getGoodsById(int id) {
-        return goodsConsumedaoImpl.getGoodsById(id);
+        return goodsConsumeDaoImpl.getGoodsById(id);
     }
 
 }

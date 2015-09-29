@@ -2,7 +2,7 @@ package org.fiveguns.controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.*;
-import org.fiveguns.service.impl.OutRepositoryServiceImpl;
+import org.fiveguns.service.impl.DeliveryServiceImpl;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +22,7 @@ import java.util.List;
         })
 public class OutRepositoryAction extends ActionSupport {
     @Autowired
-    private OutRepositoryServiceImpl outRepositoryService;
+    private DeliveryServiceImpl outRepositoryService;
     private List<OutRepositoryVO> list;
     private OutRepositoryVO outRepositoryVO;
 
@@ -36,11 +36,11 @@ public class OutRepositoryAction extends ActionSupport {
         return "getAll";
     }
 
-    public OutRepositoryServiceImpl getOutRepositoryService() {
+    public DeliveryServiceImpl getOutRepositoryService() {
         return outRepositoryService;
     }
 
-    public void setOutRepositoryService(OutRepositoryServiceImpl outRepositoryService) {
+    public void setOutRepositoryService(DeliveryServiceImpl outRepositoryService) {
         this.outRepositoryService = outRepositoryService;
     }
 

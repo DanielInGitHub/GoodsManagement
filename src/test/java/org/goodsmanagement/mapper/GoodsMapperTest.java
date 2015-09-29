@@ -2,8 +2,8 @@ package org.goodsmanagement.mapper;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.fiveguns.dao.impl.StoragedaoImpl;
-import org.fiveguns.service.impl.InRepositoryServiceImpl;
+import org.fiveguns.dao.impl.StorageDaoImpl;
+import org.fiveguns.service.impl.StorageServiceImpl;
 import org.fiveguns.vo.InrepositoryGood;
 import org.fiveguns.vo.Inrepositorysql;
 import org.junit.Before;
@@ -25,19 +25,19 @@ public class GoodsMapperTest {
     private SqlSession sqlSession;
     private ApplicationContext applicationContext;
     @Autowired
-    @Qualifier("storagedaoImpl")
-    private StoragedaoImpl storagedaoImpl;
+    @Qualifier("storageDaoImpl")
+    private StorageDaoImpl storageDaoImpl;
     @Autowired
-    @Qualifier("inRepositoryServiceImpl")
-    private InRepositoryServiceImpl inRepositoryServiceImpl;
+    @Qualifier("storageServiceImpl")
+    private StorageServiceImpl storageServiceImpl;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        storagedaoImpl = (StoragedaoImpl) applicationContext.getBean("storagedaoImpl");
+        storageDaoImpl = (StorageDaoImpl) applicationContext.getBean("storageDaoImpl");
         sqlSessionFactory = (SqlSessionFactory) applicationContext.getBean("sqlSessionFactory");
         sqlSession = sqlSessionFactory.openSession();
-        inRepositoryServiceImpl = (InRepositoryServiceImpl) applicationContext.getBean("inRepositoryServiceImpl");
+        storageServiceImpl = (StorageServiceImpl) applicationContext.getBean("storageServiceImpl");
     }
 
     @Test
@@ -83,7 +83,7 @@ public class GoodsMapperTest {
         System.out.println(list.size());
 
 
-        System.out.println("共"+inRepositoryServiceImpl.selectcountpage()+"页");
+        System.out.println("共"+ storageServiceImpl.selectcountpage()+"页");
     }
 
 }

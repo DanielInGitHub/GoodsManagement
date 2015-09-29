@@ -4,8 +4,8 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.fiveguns.dao.impl.CommoditydaoImpl;
-import org.fiveguns.dao.impl.StoragedaoImpl;
+import org.fiveguns.dao.impl.CommodityDaoImpl;
+import org.fiveguns.dao.impl.StorageDaoImpl;
 import org.fiveguns.po.CommodityDto;
 import org.fiveguns.po.StorageDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +27,13 @@ import java.text.SimpleDateFormat;
 @Component
 public class InRepositoryUtils {
     @Autowired
-    @Qualifier("storagedaoImpl")
+    @Qualifier("storageDaoImpl")
 
-    private StoragedaoImpl storagedaoImpl;
+    private StorageDaoImpl storageDaoImpl;
 
     @Autowired
-    @Qualifier("commoditydaoImpl")
-    private CommoditydaoImpl commoditydaoImpl;
+    @Qualifier("commodityDaoImpl")
+    private CommodityDaoImpl commodityDaoImpl;
 
 //    public static String filePath = "C:\\Users\\lifei\\Desktop\\goods.xls";
 
@@ -142,7 +142,7 @@ public class InRepositoryUtils {
                     in.setGoodid(Integer.parseInt(val[0]));
                     in.setNumber(Integer.parseInt(val[1]));
 //                        System.out.println(in);
-                    storagedaoImpl.insert(in);
+                    storageDaoImpl.insert(in);
 
 //                    SqlSessionFactory sqlSessionFactory;
 //                    SqlSession sqlSession;
@@ -153,10 +153,10 @@ public class InRepositoryUtils {
 //                    CommodityDto good =sqlSession.selectOne("org.fiveguns.mapper.CommodityDtoMapper.selectByPrimaryKey", Integer.parseInt(val[0]));
 
 
-                    CommodityDto good = commoditydaoImpl.selectByPrimaryKey(Integer.parseInt(val[0]));
+                    CommodityDto good = commodityDaoImpl.selectByPrimaryKey(Integer.parseInt(val[0]));
                     int num = good.getNumber() + Integer.parseInt(val[1]);
                     good.setNumber(num);
-                    commoditydaoImpl.updateByPrimaryKey(good);
+                    commodityDaoImpl.updateByPrimaryKey(good);
 
 //                    int count = sqlSession.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKeySelective", good);
 //                    System.out.println(count);

@@ -1,14 +1,17 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.UserDto;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by lifei on 2015/9/20.
  */
 @Component
-public class UserdaoImpl extends BasedaoA<UserDto> {
+public class UserDaoImpl extends BasedaoA<UserDto> {
     /**
      * 通过主键获取实体
      *
@@ -73,5 +76,18 @@ public class UserdaoImpl extends BasedaoA<UserDto> {
     @Override
     public int updateByPrimaryKey(UserDto record) {
         return sessionTemplate.update("org.fiveguns.mapper.StaffDtoMapper.updateByPrimaryKey", record);
+    }
+
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<UserDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
     }
 }

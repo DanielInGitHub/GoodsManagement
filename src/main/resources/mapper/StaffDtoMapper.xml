@@ -94,4 +94,7 @@
         from staff
     </select>
 
+    <select id="selectAllByPage" resultType="org.fiveguns.po.StaffDto">
+        SELECT * FROM staff
+    </select>
 </mapper>

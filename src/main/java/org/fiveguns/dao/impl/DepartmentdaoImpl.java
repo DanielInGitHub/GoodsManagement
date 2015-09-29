@@ -1,14 +1,17 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.DepartmentDto;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by never on 2015/9/20.
  */
 @Component
-public class DepartmentdaoImpl extends BasedaoA<DepartmentDto> {
+public class DepartmentDaoImpl extends BasedaoA<DepartmentDto> {
 
     /**
      * 通过主键删除
@@ -76,4 +79,16 @@ public class DepartmentdaoImpl extends BasedaoA<DepartmentDto> {
         return sessionTemplate.update("org.fiveguns.mapper.DepartmentDtoMapper.updateByPrimaryKey", record);
     }
 
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<DepartmentDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
+    }
 }

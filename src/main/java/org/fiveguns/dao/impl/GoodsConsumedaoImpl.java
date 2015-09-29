@@ -1,5 +1,6 @@
 package org.fiveguns.dao.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.GoodsConsumeDto;
 import org.fiveguns.vo.GetGoodsVO;
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by johnny on 2015/9/23.
  */
 @Component
-public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
+public class GoodsConsumeDaoImpl extends BasedaoA<GoodsConsumeDto> {
     /**
      * 通过主键删除
      *
@@ -20,9 +21,10 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
      */
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        
+
         return sessionTemplate.delete("org.fiveguns.mapper.GoodsConsumeDtoMapper.deleteByPrimaryKey", id);
     }
+
     /**
      * 插入记录，必须指定所有的字段
      *
@@ -33,6 +35,7 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
     public int insert(GoodsConsumeDto record) {
         return sessionTemplate.insert("org.fiveguns.mapper.GoodsConsumeDtoMapper.insert", record);
     }
+
     /**
      * 插入记录，必须指定非空的字段，但是其他字段可选
      *
@@ -43,6 +46,7 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
     public int insertSelective(GoodsConsumeDto record) {
         return sessionTemplate.insert("org.fiveguns.mapper.GoodsConsumeDtoMapper.insertSelective", record);
     }
+
     /**
      * 通过主键获取实体
      *
@@ -64,6 +68,7 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
     public int updateByPrimaryKeySelective(GoodsConsumeDto record) {
         return sessionTemplate.update("org.fiveguns.mapper.GoodsConsumeDtoMapper.updateByPrimaryKeySelective", record);
     }
+
     /**
      * 通过主键来更新实体类
      *
@@ -76,9 +81,9 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
     }
 
 
-
     /**
      * 通过id获取页面显示信息
+     *
      * @param id 传入的id
      * @return VO用于显示
      */
@@ -88,5 +93,18 @@ public class GoodsConsumedaoImpl extends BasedaoA<GoodsConsumeDto> {
 
     public List<GetGoodsVO> allGetGoodsInfo() {
         return sessionTemplate.selectList("org.fiveguns.mapper.GoodsConsumeDtoMapper.allGetGoodsInfo");
+    }
+
+    /**
+     * 获得所有的实体类，加入分页支持
+     *
+     * @param page      想要获取的页码
+     * @param rowCounts 一页的数量
+     * @return
+     */
+    @Override
+    public List<GoodsConsumeDto> selectAllByPage(int page, int rowCounts) {
+        PageHelper.startPage(page, rowCounts);
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
     }
 }

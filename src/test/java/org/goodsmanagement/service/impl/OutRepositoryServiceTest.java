@@ -1,6 +1,6 @@
 package org.goodsmanagement.service.impl;
 
-import org.fiveguns.service.impl.OutRepositoryServiceImpl;
+import org.fiveguns.service.impl.DeliveryServiceImpl;
 import org.fiveguns.vo.OutRepositoryVO;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class OutRepositoryServiceTest {
     private ApplicationContext applicationContext;
-    private OutRepositoryServiceImpl outRepositoryService;
+    private DeliveryServiceImpl outRepositoryService;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("application-config.xml");
-        outRepositoryService = (OutRepositoryServiceImpl) applicationContext.getBean("outRepositoryServiceImpl");
+        outRepositoryService = (DeliveryServiceImpl) applicationContext.getBean("deliveryServiceImpl");
     }
 
     @Test
