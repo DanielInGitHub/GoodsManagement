@@ -18,7 +18,7 @@ SELECT * FROM goods;
 SELECT id, goodname, sum(numbers) FROM goods GROUP BY goodname;
 
 # 人员物品领用明细
-SELECT getgoods.id, staff.staffname, goods.goodname, getgoods.getnumber
+SELECT getgoods.id, staff.name, goods.goodname, getgoods.getnumber
 FROM getgoods
   LEFT JOIN staff ON getgoods.staffid = staff.id
   LEFT JOIN goods ON getgoods.goodid = goods.id

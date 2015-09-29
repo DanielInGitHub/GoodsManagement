@@ -44,11 +44,11 @@ public class DeliveryServiceImpl implements BaseServiceI<DeliveryDto> {
         deliveryDaoImpl.deleteByPrimaryKey(DeliveryDto.getId());
     }
 
-    /**
-     * 显示所有出库信息
-     * @return
-     */
-    public List<OutRepositoryVO> getAllOutRepositoryVO() {
-        return deliveryDaoImpl.selectAll();
-    }
+//    /**
+//     * 显示所有出库信息
+//     * @return
+//     */
+//    public List<OutRepositoryVO> getAllOutRepositoryVO() {
+//        return deliveryDaoImpl.selectAll();
+//    }
 }

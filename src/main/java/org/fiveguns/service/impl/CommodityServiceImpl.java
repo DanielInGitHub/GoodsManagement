@@ -30,16 +30,16 @@ public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
         commodityDaoImpl.insert(CommodityDto);
     }
 
-    /**
-     * 通过货品名称来查询
-     *
-     * @param name 需要查询的货品名称
-     * @return goods
-     * 同意货品名称的集合
-     */
-    public List<CommodityDto> getEntitiesByname(String name) {
-        return commodityDaoImpl.selectByName(name);
-    }
+//    /**
+//     * 通过货品名称来查询
+//     *
+//     * @param name 需要查询的货品名称
+//     * @return goods
+//     * 同意货品名称的集合
+//     */
+//    public List<CommodityDto> getEntitiesByname(String name) {
+//        return commodityDaoImpl.selectByName(name);
+//    }
 
     /**
      * 查看商品种类
@@ -89,14 +89,14 @@ public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
     }
 
 
-    /**
-     * 获取库房盘存显示信息
-     *
-     * @return
-     */
-    public List<Warehouse> getWarehouseInventory() {
-        return commodityDaoImpl.getWarehouseInventory();
-    }
+//    /**
+//     * 获取库房盘存显示信息
+//     *
+//     * @return
+//     */
+//    public List<Warehouse> getWarehouseInventory() {
+//        return commodityDaoImpl.getWarehouseInventory();
+//    }
 
 
 }

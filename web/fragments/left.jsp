@@ -23,11 +23,11 @@
         <div class="subs"><a href="#">物品管理系统</a></div>
         <div class="subNav currentDd currentDt">物品管理</div>
         <ul class="navContent " style="display:block">
-            <li><a href="#" target="contentFrame">物品信息管理</a></li>
+            <li><a href="/GoodsManager!getAll" target="contentFrame">物品信息管理</a></li>
             <li><a href="#" target="contentFrame">库房盘存</a></li>
-            <li><a href="#" target="contentFrame">人员物品领用明细</a></li>
-            <li><a href="/InRepository!getAll" target="contentFrame">入库管理</a></li>
-            <li><a href="/OutRepository!getAll" target="contentFrame">出库管理</a></li>
+            <li><a href="/deliveryDetail!getAll" target="contentFrame">人员物品领用明细</a></li>
+            <li><a href="/storage!getAll" target="contentFrame">入库管理</a></li>
+            <li><a href="/delivery!getAll" target="contentFrame">出库管理</a></li>
         </ul>
     </div>
 </div>

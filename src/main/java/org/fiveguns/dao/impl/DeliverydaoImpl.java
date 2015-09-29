@@ -92,11 +92,11 @@ public class DeliveryDaoImpl extends BasedaoA<DeliveryDto> {
         return sessionTemplate.update("org.fiveguns.mapper.DeliveryDtoMapper.updateByPrimaryKey", record);
     }
 
-    /**
-     * 显示所有的出库信息
-     * @return List of OutRepository
-     */
-    public List<OutRepositoryVO> selectAll() {
-        return sessionTemplate.selectList("org.fiveguns.mapper.DeliveryDtoMapper.selectAll");
-    }
+//    /**
+//     * 显示所有的出库信息
+//     * @return List of OutRepository
+//     */
+//    public List<OutRepositoryVO> selectAll() {
+//        return sessionTemplate.selectList("org.fiveguns.mapper.DeliveryDtoMapper.selectAll");
+//    }
 }

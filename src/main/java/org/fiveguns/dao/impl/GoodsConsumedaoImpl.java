@@ -3,7 +3,7 @@ package org.fiveguns.dao.impl;
 import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.GoodsConsumeDto;
-import org.fiveguns.vo.GetGoodsVO;
+import org.fiveguns.vo.GoodsConsumeVo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -69,6 +69,11 @@ public class GoodsConsumeDaoImpl extends BasedaoA<GoodsConsumeDto> {
         return sessionTemplate.update("org.fiveguns.mapper.GoodsConsumeDtoMapper.updateByPrimaryKeySelective", record);
     }
 
+    @Override
+    public List<GoodsConsumeDto> selectAllByPage(int page, int rowCounts) {
+        return null;
+    }
+
     /**
      * 通过主键来更新实体类
      *
@@ -81,30 +86,27 @@ public class GoodsConsumeDaoImpl extends BasedaoA<GoodsConsumeDto> {
     }
 
 
-    /**
-     * 通过id获取页面显示信息
-     *
-     * @param id 传入的id
-     * @return VO用于显示
-     */
-    public GetGoodsVO getGoodsById(Integer id) {
-        return sessionTemplate.selectOne("org.fiveguns.mapper.GoodsConsumeDtoMapper.getGoodsById", id);
-    }
+//    public GetGoodsVO getGoodsById(Integer id) {
+//        return sessionTemplate.selectOne("org.fiveguns.mapper.GoodsConsumeDtoMapper.getGoodsById", id);
+//    }
 
-    public List<GetGoodsVO> allGetGoodsInfo() {
-        return sessionTemplate.selectList("org.fiveguns.mapper.GoodsConsumeDtoMapper.allGetGoodsInfo");
+//    public List<GetGoodsVO> allGetGoodsInfo() {
+//        return sessionTemplate.selectList("org.fiveguns.mapper.GoodsConsumeDtoMapper.allGetGoodsInfo");
+//    }
+
+    public int getCounts() {
+        return sessionTemplate.selectOne("org.fiveguns.mapper.GoodsConsumeDtoMapper.counts");
     }
 
     /**
-     * 获得所有的实体类，加入分页支持
+     * 支持分页
      *
-     * @param page      想要获取的页码
-     * @param rowCounts 一页的数量
+     * @param page
+     * @param rowCounts
      * @return
      */
-    @Override
-    public List<GoodsConsumeDto> selectAllByPage(int page, int rowCounts) {
+    public List<GoodsConsumeVo> getEntitiesByPage(int page, int rowCounts) {
         PageHelper.startPage(page, rowCounts);
-        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
+        return sessionTemplate.selectList("org.fiveguns.mapper.GoodsConsumeDtoMapper.selectAll");
     }
 }

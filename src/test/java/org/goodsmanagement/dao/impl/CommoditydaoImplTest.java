@@ -25,8 +25,8 @@ public class CommodityDaoImplTest {
 
     @Test
     public void getWarehouseInventoryTest() {
-        List<Warehouse> warehouses = goodsDao.getWarehouseInventory();
-        System.out.println(warehouses);
+//        List<Warehouse> warehouses = goodsDao.getWarehouseInventory();
+//        System.out.println(warehouses);
     }
 
     @Test

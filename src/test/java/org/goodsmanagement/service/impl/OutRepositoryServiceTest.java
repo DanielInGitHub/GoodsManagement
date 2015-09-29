@@ -30,8 +30,8 @@ public class OutRepositoryServiceTest {
 
     @Test
     public void getAllInfo() {
-        List<OutRepositoryVO> vo = outRepositoryService.getAllOutRepositoryVO();
-        System.out.println(vo);
+//        List<OutRepositoryVO> vo = outRepositoryService.getAllOutRepositoryVO();
+//        System.out.println(vo);
     }
 
     @Test

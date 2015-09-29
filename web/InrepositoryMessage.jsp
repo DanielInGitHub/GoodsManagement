@@ -35,21 +35,21 @@
           </tr>
           <tr>
             <td width="9%" align="right"><span class="red">*</span> 订单号：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield" class="s_inputss" value="<s:property value="inrepositoryShow['inrepositoryid']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield" class="s_inputss" value="<s:property value="storageShow['inrepositoryid']"/>"/></td>
             <td width="9%" align="right"><span class="red">*</span> 联系人：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield1" class="s_inputss" value="<s:property value="inrepositoryShow['linkman']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield1" class="s_inputss" value="<s:property value="storageShow['linkman']"/>"/></td>
           </tr>
           <tr>
             <td width="9%" align="right"><span class="red">*</span> 供应商：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield2" class="s_inputss" value="<s:property value="inrepositoryShow['suppliers']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield2" class="s_inputss" value="<s:property value="storageShow['suppliers']"/>"/></td>
             <td width="9%" align="right"><span class="red">*</span> 入库人员：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield3" class="s_inputss" value="<s:property value="inrepositoryShow['staffname']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield3" class="s_inputss" value="<s:property value="storageShow['name']"/>"/></td>
             </tr>
           <tr>
            <td width="9%" align="right"><span class="red">*</span> 联系人电话：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield4" class="s_inputss" value="<s:property value="inrepositoryShow['phone']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield4" class="s_inputss" value="<s:property value="storageShow['phone']"/>"/></td>
             <td width="9%" align="right"><span class="red">*</span> 入库时间：</td>
-            <td width="18%"><input type="text" name="textfield" id="textfield5" class="s_inputss" value="<s:property value="inrepositoryShow['intime']"/>"/></td>
+            <td width="18%"><input type="text" name="textfield" id="textfield5" class="s_inputss" value="<s:property value="storageShow['intime']"/>"/></td>
           </tr>
         </table>
         <h3>入库清单：</h3>

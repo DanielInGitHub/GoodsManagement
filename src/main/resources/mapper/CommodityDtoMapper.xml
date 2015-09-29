@@ -106,11 +106,6 @@
         where name = #{name,jdbcType=VARCHAR}
     </select>
 
-    <!--<select id="selectGroupByName" resultType="org.fiveguns.vo.commodityVo">-->
-        <!--select name, unit from commodity-->
-        <!--GROUP BY name-->
-    <!--</select>-->
-
     <select id="selectAllByPage" resultType="CommodityDto">
         SELECT * FROM commodity
     </select>

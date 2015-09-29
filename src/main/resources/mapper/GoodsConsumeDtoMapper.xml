@@ -28,7 +28,7 @@
     <insert id="insert" parameterType="org.fiveguns.po.GoodsConsumeDto">
     insert into goodsconsume (id, staffid, goodid,
       number)
-    values (#{id,jdbcType=INTEGER}, #{staffid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{staffid,jdbcType=INTEGER}, #{goodid,jdbcType=INTEGER},
       #{number,jdbcType=INTEGER})
   </insert>
 
@@ -88,20 +88,16 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <!-- 自己添加  -->
-    <!--<select id="getGoodsById" parameterType="java.lang.Integer" resultType="org.fiveguns.vo.GetGoodsVO">-->
-        <!--SELECT getgoods.id, staff.staffname, goods.goodname, goods.goodtype ,getgoods.getnumber-->
-        <!--FROM getgoods-->
-        <!--LEFT JOIN staff ON getgoods.staffid = staff.id-->
-        <!--LEFT JOIN goods ON getgoods.goodid = goods.id-->
-        <!--WHERE getgoods.id = #{id};-->
-    <!--</select>-->
+    <select id="selectAll" resultType="org.fiveguns.vo.GoodsConsumeVo">
+        SELECT GoodsConsume.number,staff.name staffname,
+        staff.id,staff.gender,Department.name deptname,
+        Commodity.name commodityname,Commodity.type
+        FROM GoodsConsume LEFT OUTER JOIN staff ON staff.id = GoodsConsume.staffid
+        LEFT OUTER JOIN Department ON Department.id = staff.deptid
+        LEFT OUTER JOIN Commodity ON Commodity.id = GoodsConsume.goodid
+    </select>
 
-    <!--<select id="allGetGoodsInfo" resultType="org.fiveguns.vo.GetGoodsVO">-->
-        <!--SELECT getgoods.id, staff.staffname, goods.goodname,goods.goodtype, getgoods.getnumber-->
-        <!--FROM getgoods-->
-        <!--LEFT JOIN staff ON getgoods.staffid = staff.id-->
-        <!--LEFT JOIN goods ON getgoods.goodid = goods.id-->
-    <!--</select>-->
-
+    <select id="counts" resultType="INTEGER">
+        select COUNT(*) FROM GoodsConsume;
+    </select>
 </mapper>
