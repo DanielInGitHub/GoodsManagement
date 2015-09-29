@@ -158,114 +158,114 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <select id="selectingood" resultType="org.fiveguns.vo.InrepositoryGood" parameterType="java.lang.String">
-        select
-        goods.goodname,
-        goods.goodunit,
-        goods.goodtype,
-        inrepository.goodnumber
-        from goods,inrepository
-        WHERE goods.id = inrepository.goodid
-        AND inrepository.inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
-    </select>
-    <select id="selectall" resultType="org.fiveguns.po.StorageDto">
-        select
-        <include refid="Base_Column_List"/>
-        from inrepository
-    </select>
-    <select id="selectsql" resultType="org.fiveguns.vo.InrepositoryShow"
-            parameterType="org.fiveguns.vo.Inrepositorysql">
-        select
-        inrepository.inrepositoryid,
-        inrepository.suppliers,
-        inrepository.linkman,
-        inrepository.phone,
-        inrepository.intime,
-        staff.staffname
-        from inrepository,staff
-        <where>
-            inrepository.operatorid=staff.id
-            <if test=" suppliers != null ">
-                AND suppliers = #{suppliers}
-            </if>
-            <if test="intime != null">
-                and intime LIKE CONCAT(CONCAT('%', #{intime}),'%')
-            </if>
-            <if test="inrepositoryid != null ">
-                and inrepositoryid = #{inrepositoryid}
-            </if>
-        </where>
-        GROUP BY inrepositoryid
-    </select>
+    <!--<select id="selectingood" resultType="org.fiveguns.vo.InrepositoryGood" parameterType="java.lang.String">-->
+        <!--select-->
+        <!--goods.goodname,-->
+        <!--goods.goodunit,-->
+        <!--goods.goodtype,-->
+        <!--inrepository.goodnumber-->
+        <!--from goods,inrepository-->
+        <!--WHERE goods.id = inrepository.goodid-->
+        <!--AND inrepository.inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}-->
+    <!--</select>-->
+    <!--<select id="selectall" resultType="org.fiveguns.po.StorageDto">-->
+        <!--select-->
+        <!--<include refid="Base_Column_List"/>-->
+        <!--from inrepository-->
+    <!--</select>-->
+    <!--<select id="selectsql" resultType="org.fiveguns.vo.InrepositoryShow"-->
+            <!--parameterType="org.fiveguns.vo.Inrepositorysql">-->
+        <!--select-->
+        <!--inrepository.inrepositoryid,-->
+        <!--inrepository.suppliers,-->
+        <!--inrepository.linkman,-->
+        <!--inrepository.phone,-->
+        <!--inrepository.intime,-->
+        <!--staff.staffname-->
+        <!--from inrepository,staff-->
+        <!--<where>-->
+            <!--inrepository.operatorid=staff.id-->
+            <!--<if test=" suppliers != null ">-->
+                <!--AND suppliers = #{suppliers}-->
+            <!--</if>-->
+            <!--<if test="intime != null">-->
+                <!--and intime LIKE CONCAT(CONCAT('%', #{intime}),'%')-->
+            <!--</if>-->
+            <!--<if test="inrepositoryid != null ">-->
+                <!--and inrepositoryid = #{inrepositoryid}-->
+            <!--</if>-->
+        <!--</where>-->
+        <!--GROUP BY inrepositoryid-->
+    <!--</select>-->
 
-    <select id="selectgroup" resultType="org.fiveguns.vo.InrepositoryShow">
-        select distinct
-        inrepository.inrepositoryid,
-        inrepository.suppliers,
-        inrepository.linkman,
-        inrepository.phone,
-        inrepository.intime,
-        staff.staffname
-        from inrepository,staff
-        WHERE inrepository.operatorid=staff.id
-        GROUP BY inrepositoryid
-    </select>
+    <!--<select id="selectgroup" resultType="org.fiveguns.vo.InrepositoryShow">-->
+        <!--select distinct-->
+        <!--inrepository.inrepositoryid,-->
+        <!--inrepository.suppliers,-->
+        <!--inrepository.linkman,-->
+        <!--inrepository.phone,-->
+        <!--inrepository.intime,-->
+        <!--staff.staffname-->
+        <!--from inrepository,staff-->
+        <!--WHERE inrepository.operatorid=staff.id-->
+        <!--GROUP BY inrepositoryid-->
+    <!--</select>-->
 
-    <select id="selectmesInprositoryId" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="java.lang.String">
-        select distinct
-        inrepository.inrepositoryid,
-        inrepository.suppliers,
-        inrepository.linkman,
-        inrepository.phone,
-        inrepository.intime,
-        staff.staffname
-        from inrepository,staff
-        WHERE inrepository.operatorid=staff.id
-        AND inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}
-    </select>
+    <!--<select id="selectmesInprositoryId" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="java.lang.String">-->
+        <!--select distinct-->
+        <!--inrepository.inrepositoryid,-->
+        <!--inrepository.suppliers,-->
+        <!--inrepository.linkman,-->
+        <!--inrepository.phone,-->
+        <!--inrepository.intime,-->
+        <!--staff.staffname-->
+        <!--from inrepository,staff-->
+        <!--WHERE inrepository.operatorid=staff.id-->
+        <!--AND inrepositoryid = #{inrepositoryid,jdbcType=VARCHAR}-->
+    <!--</select>-->
 
 
-    <select id="selectcount" resultType="java.lang.Integer" parameterType="org.fiveguns.vo.Inrepositorysql">
-        select
-        COUNT(*)
-        from
-        (select
-        inrepositoryid
-        from inrepository
-        <where>
-            <if test=" suppliers != null ">
-                suppliers = #{suppliers}
-            </if>
-            <if test="intime != null">
-                and intime LIKE CONCAT(CONCAT('%', #{intime}),'%')
-            </if>
-            <if test="inrepositoryid != null ">
-                and inrepositoryid = #{inrepositoryid}
-            </if>
-        </where>
-        GROUP BY inrepositoryid)AS repository
-    </select>
-    <select id="selectbypage" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="int">
-        select distinct
-        inrepositoryid,
-        suppliers,
-        linkman,
-        phone,
-        operatorid,
-        intime
-        from inrepository
-        GROUP BY inrepositoryid
-        limit #{page},3
-    </select>
+    <!--<select id="selectcount" resultType="java.lang.Integer" parameterType="org.fiveguns.vo.Inrepositorysql">-->
+        <!--select-->
+        <!--COUNT(*)-->
+        <!--from-->
+        <!--(select-->
+        <!--inrepositoryid-->
+        <!--from inrepository-->
+        <!--<where>-->
+            <!--<if test=" suppliers != null ">-->
+                <!--suppliers = #{suppliers}-->
+            <!--</if>-->
+            <!--<if test="intime != null">-->
+                <!--and intime LIKE CONCAT(CONCAT('%', #{intime}),'%')-->
+            <!--</if>-->
+            <!--<if test="inrepositoryid != null ">-->
+                <!--and inrepositoryid = #{inrepositoryid}-->
+            <!--</if>-->
+        <!--</where>-->
+        <!--GROUP BY inrepositoryid)AS repository-->
+    <!--</select>-->
+    <!--<select id="selectbypage" resultType="org.fiveguns.vo.InrepositoryShow" parameterType="int">-->
+        <!--select distinct-->
+        <!--inrepositoryid,-->
+        <!--suppliers,-->
+        <!--linkman,-->
+        <!--phone,-->
+        <!--operatorid,-->
+        <!--intime-->
+        <!--from inrepository-->
+        <!--GROUP BY inrepositoryid-->
+        <!--limit #{page},3-->
+    <!--</select>-->
 
-    <select id="selectcountpage" resultType="java.lang.Integer">
-        select
-        COUNT(*)
-        from
-        (select
-        inrepositoryid
-        from inrepository
-        GROUP BY inrepositoryid)AS repository
-    </select>
+    <!--<select id="selectcountpage" resultType="java.lang.Integer">-->
+        <!--select-->
+        <!--COUNT(*)-->
+        <!--from-->
+        <!--(select-->
+        <!--inrepositoryid-->
+        <!--from inrepository-->
+        <!--GROUP BY inrepositoryid)AS repository-->
+    <!--</select>-->
 
 </mapper>

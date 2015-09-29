@@ -3,7 +3,7 @@ package org.fiveguns.vo;
 /**
  * Created by lifei on 2015/9/20.
  */
-public class GoodsVo {
+public class CommodityVo {
     private String goodname;
     private String gooduit;
 

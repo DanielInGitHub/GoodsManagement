@@ -53,7 +53,7 @@ public class DeptDtoMapperTest {
 //        DeptDto u;
 //        u = session.selectOne("org.fiveguns.mapper.DeptDtoMapper.selectByPrimaryKey", "1");
 //        System.out.println(u);
-//        List<GoodsVo> users =  sqlSession.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectGroupByName");
+//        List<CommodityVo> users =  sqlSession.selectList("org.fiveguns.mapper.GoodsDtoMapper.selectGroupByName");
 //        System.out.println(users.get(1).getGoodname());
     }
 

@@ -3,7 +3,7 @@ package org.fiveguns.dao.impl;
 import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.CommodityDto;
-import org.fiveguns.vo.GoodsVo;
+import org.fiveguns.vo.CommodityVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.stereotype.Component;
 
@@ -111,8 +111,8 @@ public class CommodityDaoImpl extends BasedaoA<CommodityDto> {
      * @return goods
      * 已经分类的Goods集合
      */
-    public List<GoodsVo> getEntitieskind() {
-        List<GoodsVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
+    public List<CommodityVo> getEntitieskind() {
+        List<CommodityVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
         return goods;
     }
 

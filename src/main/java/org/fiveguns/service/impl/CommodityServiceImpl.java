@@ -3,7 +3,7 @@ package org.fiveguns.service.impl;
 import org.fiveguns.dao.impl.CommodityDaoImpl;
 import org.fiveguns.po.CommodityDto;
 import org.fiveguns.service.BaseServiceI;
-import org.fiveguns.vo.GoodsVo;
+import org.fiveguns.vo.CommodityVo;
 import org.fiveguns.vo.Warehouse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,9 +47,9 @@ public class CommodityServiceImpl implements BaseServiceI<CommodityDto> {
      * @return goods
      * 已经分类的Goods集合
      */
-    public List<GoodsVo> getEntitieskind() {
-        return commodityDaoImpl.getEntitieskind();
-    }
+//    public List<CommodityVo> getEntitieskind() {
+//        return commodityDaoImpl.getEntitieskind();
+//    }
 
     /**
      * 删除指定ID的商品
