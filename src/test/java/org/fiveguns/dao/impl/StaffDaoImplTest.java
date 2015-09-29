@@ -82,7 +82,7 @@ public class StaffDaoImplTest {
 
     @Test
     public void testSelectAllByPage() throws Exception {
-        List<StaffDto> staffDtos = staffDao.selectAllByPage(1, 2);
-        System.out.println(Arrays.toString(staffDtos.toArray()));
+//        List<StaffDto> staffDtos = staffDao.selectAllByPage(1, 2);
+//        System.out.println(Arrays.toString(staffDtos.toArray()));
     }
 }

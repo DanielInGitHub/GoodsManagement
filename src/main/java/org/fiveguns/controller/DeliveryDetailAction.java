@@ -18,11 +18,7 @@ import java.util.List;
 @Namespace("/")
 @Results(
         {
-
-                @Result(name = "getAll", location = "/deliveryDetail.jsp"),
-                @Result(name = "error", location = "/goodsManager.jsp"),
-//                @Result(name = "showAll", location = "/showGoodsInformation.jsp"),
-//                @Result(name = "addGood", location = "/addGood.jsp")
+                @Result(name = "getAll", location = "/WEB-INF/fragments/deliveryDetail.jsp"),
         })
 public class DeliveryDetailAction {
 

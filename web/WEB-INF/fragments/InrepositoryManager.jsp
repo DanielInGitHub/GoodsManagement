@@ -25,7 +25,7 @@
 <body>
 <div class="cont left">
   <div class="content">
-    <jsp:include page="fragments/contentTop.jsp"/>
+    <jsp:include page="../../fragments/contentTop.jsp"/>
     <div class="ctop"><a href="#">首页</a> &gt; <a href="#">入库出库管理</a> &gt; <a href="#">入库管理</a>
     </div>
     <form id="formresume" enctype="multipart/form-data" method="post">
@@ -62,13 +62,13 @@
             <%--显示表内容--%>
               <s:iterator value="list" var="column">
                 <tr style="color:#000; font-size:14px; padding:10px 0;">
-                  <td align="center" bgcolor="#fff8f8">${inrepositoryid}</td>
-                  <td align="center" bgcolor="#fff8f8">${intime}</td>
-                  <td align="center" bgcolor="#fff8f8">${suppliers}</td>
-                  <td align="center" bgcolor="#fff8f8">${linkman}</td>
+                  <td align="center" bgcolor="#fff8f8">${storageid}</td>
+                  <td align="center" bgcolor="#fff8f8">${time}</td>
+                  <td align="center" bgcolor="#fff8f8">${supplycompany}</td>
+                  <td align="center" bgcolor="#fff8f8">${supplier}</td>
                   <td align="center" bgcolor="#fff8f8">${phone}</td>
                   <td align="center" bgcolor="#fff8f8">${name}</td>
-                  <td align="center" bgcolor="#fff8f8"><a href="/InRepository!selectInrepositoryGoods?inrepositoryid=${inrepositoryid}">查看详细信息</a></td>
+                  <td align="center" bgcolor="#fff8f8"><a href="/storage!selectInrepositoryGoods?inrepositoryid=${storageid}">查看详细信息</a></td>
                 </tr>
               </s:iterator>
           </table>

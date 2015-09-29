@@ -158,10 +158,24 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+    <!--手动添加-->
+    <select id="selectmesstorageid" resultType="org.fiveguns.vo.StorageShow" parameterType="java.lang.String">
+    select distinct
+    storage.storageid,
+    storage.supplycompany,
+    storage.supplier,
+    storage.phone,
+    storage.time,
+    staff.name
+    from storage,staff
+    WHERE storage.operatorid=staff.id
+    AND storageid = #{storageid,jdbcType=VARCHAR}
+    </select>
+
     <!--<select id="selectByGroup" resultType="org.fiveguns.vo.StorageShow">-->
         <!--select distinct-->
         <!--storage.storageid,-->
-        <!--storage.supplier,-->
+        <!--storage.supplycompany,-->
         <!--storage.supplycompany,-->
         <!--storage.phone,-->
         <!--storage.time,-->
@@ -171,10 +185,81 @@
         <!--GROUP BY storageid-->
     <!--</select>-->
 
-    <select id="selectCounts" resultType="java.lang.Integer">
+    <select id="selectCounts" resultType="java.lang.Integer" parameterType="org.fiveguns.vo.StorageSQL">
+        select COUNT(*) from
+        (select storageid from storage
+        <where>
+            <if test="supplycompany!= null">
+                supplycompany = #{supplycompany}
+            </if>
+            <if test="time != null">
+                and time LIKE CONCAT(CONCAT('%', #{time}),'%')
+            </if>
+            <if test="storageid != null ">
+                and storageid = #{storageid}
+            </if>
+        </where>
+        GROUP BY storageid)AS repository
+    </select>
+
+    <select id="selectbypage" resultType="org.fiveguns.vo.StorageShow" parameterType="int">
+    select distinct
+    storageid,
+    supplycompany,
+    supplier,
+    phone,
+    operatorid,
+    time
+    from storage
+    GROUP BY storageid
+    limit #{page},3
+    </select>
+
+    <select id="Counts" resultType="java.lang.Integer">
     select COUNT(*)
     from (select storageid from storage
           GROUP BY storageid)AS repository
+    </select>
+
+    <select id="selectingood" resultType="org.fiveguns.vo.StorageGood" parameterType="java.lang.String">
+    select
+    Commodity.name,
+    Commodity.unit,
+    Commodity.type,
+    storage.number
+    from Commodity,storage
+    WHERE Commodity.id = storage.goodid
+    AND storage.storageid = #{storageid,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByGroup" resultType="org.fiveguns.po.StorageDto">
+        select
+        <include refid="Base_Column_List"/>
+        from storage
+    </select>
+
+    <select id="selectsql" resultType="org.fiveguns.vo.StorageShow" parameterType="org.fiveguns.vo.StorageSQL">
+        select
+        storage.storageid,
+        storage.supplycompany,
+        storage.supplier,
+        storage.phone,
+        storage.time,
+        staff.name
+        from storage,staff
+        <where>
+            storage.operatorid=staff.id
+            <if test=" supplycompany != null ">
+                AND supplycompany = #{supplycompany}
+            </if>
+            <if test="time != null">
+                and time LIKE CONCAT(CONCAT('%', #{time}),'%')
+            </if>
+            <if test="storageid != null ">
+                and storageid = #{storageid}
+            </if>
+        </where>
+        GROUP BY storageid
     </select>
 
 </mapper>

@@ -25,7 +25,7 @@
 <body>
 <div class="cont left">
   <div class="content">
-    <jsp:include page="fragments/contentTop.jsp"/>
+    <jsp:include page="../../fragments/contentTop.jsp"/>
     <div class="ctop"><a href="#">首页</a> &gt; <a href="#">综合业务管理系统</a> &gt; <a href="#">读取入库单信息</a></div>
     <div  class="tum">
       <div class="contlist">

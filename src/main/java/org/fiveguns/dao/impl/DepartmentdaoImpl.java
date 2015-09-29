@@ -79,16 +79,4 @@ public class DepartmentDaoImpl extends BasedaoA<DepartmentDto> {
         return sessionTemplate.update("org.fiveguns.mapper.DepartmentDtoMapper.updateByPrimaryKey", record);
     }
 
-    /**
-     * 获得所有的实体类，加入分页支持
-     *
-     * @param page      想要获取的页码
-     * @param rowCounts 一页的数量
-     * @return
-     */
-    @Override
-    public List<DepartmentDto> selectAllByPage(int page, int rowCounts) {
-        PageHelper.startPage(page, rowCounts);
-        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectAllByPage");
-    }
 }

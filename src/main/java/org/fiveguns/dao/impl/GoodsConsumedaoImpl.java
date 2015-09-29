@@ -69,11 +69,6 @@ public class GoodsConsumeDaoImpl extends BasedaoA<GoodsConsumeDto> {
         return sessionTemplate.update("org.fiveguns.mapper.GoodsConsumeDtoMapper.updateByPrimaryKeySelective", record);
     }
 
-    @Override
-    public List<GoodsConsumeDto> selectAllByPage(int page, int rowCounts) {
-        return null;
-    }
-
     /**
      * 通过主键来更新实体类
      *

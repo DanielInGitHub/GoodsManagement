@@ -21,7 +21,7 @@
 <body>
 <div class="cont left">
     <div class="content">
-        <jsp:include page="fragments/contentTop.jsp"/>
+        <jsp:include page="../../fragments/contentTop.jsp"/>
         <div class="ctop"><a href="#">首页</a> &gt; <a href="#">入库出库管理</a> &gt; <a href="#">出库管理</a>
         </div>
         <form id="formresume" enctype="multipart/form-data" method="post">
