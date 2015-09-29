@@ -20,13 +20,13 @@ public interface BaseServiceI<T> {
      */
     void modifyEntity(T t);
 
-    /**
-     * load具有懒加载效果，获得实体类
-     *
-     * @param id 实体对象的id
-     * @return
-     */
-    T loadEntity(int id);
+//    /**
+//     * load具有懒加载效果，获得实体类
+//     *
+//     * @param id 实体对象的id
+//     * @return
+//     */
+//    T loadEntity(int id);
 
     /**
      * 获得实体类
@@ -36,12 +36,12 @@ public interface BaseServiceI<T> {
      */
     T getEntity(int id);
 
-    /**
-     * 获得所有的实体类
-     *
-     * @return
-     */
-    List<T> getAllEntities();
+//    /**
+//     * 获得所有的实体类
+//     *
+//     * @return
+//     */
+//    List<T> getAllEntities();
 
 
     /**
@@ -50,6 +50,6 @@ public interface BaseServiceI<T> {
      * @param t 实体对象
      * @return
      */
-    void deleteEntity(T t);
+    void deleteEntity(int id);
 
 }

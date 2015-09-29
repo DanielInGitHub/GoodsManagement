@@ -14,16 +14,18 @@ import java.util.List;
  */
 @Service
 public class StaffServiceImpl implements BaseServiceI<StaffDto> {
+
     @Autowired
     @Qualifier("staffDaoImpl")
-    private StaffDaoImpl staffDaoImpl;
+    private StaffDaoImpl staffDao;
+
     /**
      * 添加实体
      *
      * @param staffDto 实体对象
      */
     public void addEntity(StaffDto staffDto) {
-        staffDaoImpl.insert(staffDto);
+        staffDao.insert(staffDto);
     }
 
     /**
@@ -32,7 +34,7 @@ public class StaffServiceImpl implements BaseServiceI<StaffDto> {
      * @param staffDto 实体对象(不需指定所有的键)
      */
     public void modifyEntity(StaffDto staffDto) {
-        staffDaoImpl.updateByPrimaryKey(staffDto);
+        staffDao.updateByPrimaryKey(staffDto);
     }
 
     /**
@@ -42,30 +44,14 @@ public class StaffServiceImpl implements BaseServiceI<StaffDto> {
      * @return
      */
     public StaffDto getEntity(int id) {
-        return staffDaoImpl.selectByPrimaryKey(id);
-    }
-
-    /**
-     * 获取多有的实体类
-     *
-     * @return 所有员工的集合
-     */
-    public List<StaffDto> getAllEntities() {
-        return staffDaoImpl.selectAll();
+        return staffDao.selectByPrimaryKey(id);
     }
 
     /**
      * 删除指定ID的商品
      */
     public void deleteEntity(int id) {
-        staffDaoImpl.deleteByPrimaryKey(id);
+        staffDao.deleteByPrimaryKey(id);
     }
 
-    public void deleteEntity(StaffDto staffDto) {
-
-    }
-
-    public StaffDto loadEntity(int id) {
-        return null;
-    }
 }

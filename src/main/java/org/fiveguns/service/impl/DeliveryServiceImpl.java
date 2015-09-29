@@ -3,7 +3,6 @@ package org.fiveguns.service.impl;
 import org.fiveguns.dao.impl.DeliveryDaoImpl;
 import org.fiveguns.po.DeliveryDto;
 import org.fiveguns.service.BaseServiceI;
-import org.fiveguns.vo.OutRepositoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,6 +15,7 @@ import java.util.List;
  */
 @Service
 public class DeliveryServiceImpl implements BaseServiceI<DeliveryDto> {
+
     @Autowired
     @Qualifier("deliveryDaoImpl")
     private DeliveryDaoImpl deliveryDaoImpl;
@@ -28,20 +28,12 @@ public class DeliveryServiceImpl implements BaseServiceI<DeliveryDto> {
         deliveryDaoImpl.updateByPrimaryKeySelective(DeliveryDto);
     }
 
-    public DeliveryDto loadEntity(int id) {
-        return null;
-    }
-
     public DeliveryDto getEntity(int id) {
         return deliveryDaoImpl.selectByPrimaryKey(id);
     }
 
-    public List<DeliveryDto> getAllEntities() {
-        return null;
-    }
-
-    public void deleteEntity(DeliveryDto DeliveryDto) {
-        deliveryDaoImpl.deleteByPrimaryKey(DeliveryDto.getId());
+    public void deleteEntity(int id) {
+        deliveryDaoImpl.deleteByPrimaryKey(id);
     }
 
 //    /**

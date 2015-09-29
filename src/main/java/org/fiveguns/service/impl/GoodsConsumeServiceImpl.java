@@ -1,6 +1,5 @@
 package org.fiveguns.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.impl.GoodsConsumeDaoImpl;
 import org.fiveguns.po.GoodsConsumeDto;
 import org.fiveguns.service.BaseServiceI;
@@ -19,30 +18,22 @@ public class GoodsConsumeServiceImpl implements BaseServiceI<GoodsConsumeDto> {
 
     @Autowired
     @Qualifier("goodsConsumeDaoImpl")
-    private GoodsConsumeDaoImpl goodsConsumeDaoImpl;
+    private GoodsConsumeDaoImpl goodsConsumeDao;
 
     public void addEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumeDaoImpl.insert(GoodsConsumeDto);
+        goodsConsumeDao.insert(GoodsConsumeDto);
     }
 
     public void modifyEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumeDaoImpl.updateByPrimaryKey(GoodsConsumeDto);
-    }
-
-    public GoodsConsumeDto loadEntity(int id) {
-        return null;
+        goodsConsumeDao.updateByPrimaryKey(GoodsConsumeDto);
     }
 
     public GoodsConsumeDto getEntity(int id) {
-        return goodsConsumeDaoImpl.selectByPrimaryKey(id);
+        return goodsConsumeDao.selectByPrimaryKey(id);
     }
 
-    public List<GoodsConsumeDto> getAllEntities() {
-        return null;
-    }
-
-    public void deleteEntity(GoodsConsumeDto GoodsConsumeDto) {
-        goodsConsumeDaoImpl.deleteByPrimaryKey(GoodsConsumeDto.getId());
+    public void deleteEntity(int id) {
+        goodsConsumeDao.deleteByPrimaryKey(id);
     }
 
     /**
@@ -53,11 +44,16 @@ public class GoodsConsumeServiceImpl implements BaseServiceI<GoodsConsumeDto> {
      * @return
      */
     public List<GoodsConsumeVo> getEntitiesByPage(int page, int rowCounts) {
-        return goodsConsumeDaoImpl.getEntitiesByPage(page, rowCounts);
+        return goodsConsumeDao.getEntitiesByPage(page, rowCounts);
     }
 
+    /**
+     * 获取记录数
+     *
+     * @return
+     */
     public int getCounts() {
-        return goodsConsumeDaoImpl.getCounts();
+        return goodsConsumeDao.getCounts();
     }
 
 }
