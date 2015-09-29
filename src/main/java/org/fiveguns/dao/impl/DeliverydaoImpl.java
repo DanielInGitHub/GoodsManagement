@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.CommodityDto;
 import org.fiveguns.po.DeliveryDto;
+import org.fiveguns.vo.DeliveryVo;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class DeliveryDaoImpl extends BasedaoA<DeliveryDto> {
     public int deleteByPrimaryKey(Integer id) {
         return sessionTemplate.delete("org.fiveguns.mapper.DeliveryDtoMapper.deleteByPrimaryKey", id);
     }
+
     /**
      * 插入记录，必须指定所有的字段
      *
@@ -45,6 +47,7 @@ public class DeliveryDaoImpl extends BasedaoA<DeliveryDto> {
     public int insert(DeliveryDto record) {
         return sessionTemplate.insert("org.fiveguns.mapper.DeliveryDtoMapper.insert", record);
     }
+
     /**
      * 插入记录，必须指定非空的字段，但是其他字段可选
      *
@@ -79,11 +82,12 @@ public class DeliveryDaoImpl extends BasedaoA<DeliveryDto> {
         return sessionTemplate.update("org.fiveguns.mapper.DeliveryDtoMapper.updateByPrimaryKey", record);
     }
 
-//    /**
-//     * 显示所有的出库信息
-//     * @return List of OutRepository
-//     */
-//    public List<OutRepositoryVO> selectAll() {
-//        return sessionTemplate.selectList("org.fiveguns.mapper.DeliveryDtoMapper.selectAll");
-//    }
+    /**
+     * 显示所有的出库信息
+     *
+     * @return List of OutRepository
+     */
+    public List<DeliveryVo> selectAll() {
+        return sessionTemplate.selectList("org.fiveguns.mapper.DeliveryDtoMapper.selectAll");
+    }
 }

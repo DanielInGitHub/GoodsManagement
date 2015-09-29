@@ -3,6 +3,7 @@ package org.fiveguns.service.impl;
 import org.fiveguns.dao.impl.DeliveryDaoImpl;
 import org.fiveguns.po.DeliveryDto;
 import org.fiveguns.service.BaseServiceI;
+import org.fiveguns.vo.DeliveryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -36,11 +37,11 @@ public class DeliveryServiceImpl implements BaseServiceI<DeliveryDto> {
         deliveryDaoImpl.deleteByPrimaryKey(id);
     }
 
-//    /**
-//     * 显示所有出库信息
-//     * @return
-//     */
-//    public List<OutRepositoryVO> getAllOutRepositoryVO() {
-//        return deliveryDaoImpl.selectAll();
-//    }
+    /**
+     * 显示所有出库信息
+     * @return
+     */
+    public List<DeliveryVo> getAllDeliveryVo() {
+        return deliveryDaoImpl.selectAll();
+    }
 }

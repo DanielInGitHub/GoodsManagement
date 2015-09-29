@@ -3,6 +3,8 @@ package org.fiveguns.dao.impl;
 import com.github.pagehelper.PageHelper;
 import org.fiveguns.dao.BasedaoA;
 import org.fiveguns.po.CommodityDto;
+import org.fiveguns.vo.CommodityVo;
+import org.fiveguns.vo.Warehouse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -78,35 +80,38 @@ public class CommodityDaoImpl extends BasedaoA<CommodityDto> {
         return sessionTemplate.update("org.fiveguns.mapper.CommodityDtoMapper.updateByPrimaryKey", record);
     }
 
-//    /**
-//     * 通过货品名称来查询
-//     *
-//     * @param name 需要查询的货品名称
-//     * @return goods
-//     * 同意货品名称的集合
-//     */
-//    public List<CommodityDto> selectByName(String name) {
-//        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectByName", name);
-//    }
+    /**
+     * 通过货品名称来查询
+     *
+     * @param name 需要查询的货品名称
+     * @return goods
+     * 同意货品名称的集合
+     */
+    public List<CommodityDto> selectByName(String name) {
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectByName", name);
+    }
 
-//    /**
-//     * 通过货品名称来查询
-//     *
-//     * @return goods
-//     * 已经分类的Goods集合
-//     */
-//    public List<CommodityVo> getEntitieskind() {
-//        List<CommodityVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
-//        return goods;
-//    }
+    /**
+     * 通过货品名称来查询
+     *
+     * @return goods
+     * 已经分类的Goods集合
+     */
+    public List<CommodityVo> getEntitieskind() {
+        List<CommodityVo> goods = sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.selectGroupByName");
+        return goods;
+    }
 
-//    /**
-//     * 获取库房盘存信息
-//     *
-//     * @return 所有库房盘存信息
-//     */
-//    public List<Warehouse> getWarehouseInventory() {
-//        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.WarehouseInventory");
-//    }
+    /**
+     * 获取库房盘存信息
+     *
+     * @return 所有库房盘存信息
+     */
+    public List<Warehouse> getWarehouseInventory() {
+        return sessionTemplate.selectList("org.fiveguns.mapper.CommodityDtoMapper.WarehouseInventory");
+    }
 
+    public List<Warehouse> getWarehouseInventory1() {
+        return sessionTemplate.selectList("org.goodsManagement.mapper.GoodsDtoMapper.WarehouseInventory1");
+    }
 }

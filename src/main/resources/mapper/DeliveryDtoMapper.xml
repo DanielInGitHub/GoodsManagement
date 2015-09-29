@@ -147,4 +147,14 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+    <!-- 查出所有出库信息 -->
+    <select id="selectAll" resultType="org.fiveguns.vo.DeliveryVo">
+    SELECT deliveryid, Delivery.id, Delivery.time,
+    Commodity.name, Commodity.type, Commodity.number,
+    User.username username, Department.name deptname, comments
+    FROM Delivery
+    LEFT JOIN Commodity ON Commodity.id = goodid
+    LEFT JOIN User ON User.id = operatorid
+    LEFT JOIN Department ON Department.id = deptid;
+    </select>
 </mapper>

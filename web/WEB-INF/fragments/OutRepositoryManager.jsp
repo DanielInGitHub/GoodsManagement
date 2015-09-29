@@ -64,10 +64,10 @@
                         <%--显示表内容--%>
                         <s:iterator value="list" var="column">
                             <tr style="color:#000; font-size:14px; padding:10px 0;">
-                                <td align="center" bgcolor="#fff8f8">${outrepositoryid}</td>
-                                <td align="center" bgcolor="#fff8f8">${outtime}</td>
-                                <td align="center" bgcolor="#fff8f8">${goodname}</td>
-                                <td align="center" bgcolor="#fff8f8">${goodtype}</td>
+                                <td align="center" bgcolor="#fff8f8">${deliveryid}</td>
+                                <td align="center" bgcolor="#fff8f8">${time}</td>
+                                <td align="center" bgcolor="#fff8f8">${name}</td>
+                                <td align="center" bgcolor="#fff8f8">${type}</td>
                                 <td align="center" bgcolor="#fff8f8">${deptname}</td>
                                 <td align="center" bgcolor="#fff8f8">${username}</td>
                                 <td align="center" bgcolor="#fff8f8"><a
