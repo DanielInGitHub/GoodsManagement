@@ -24,10 +24,8 @@ import java.util.List;
 @Namespace("/")
 @Results(
         {
-                @Result(name = "getAll", location = "/InrepositoryManager.jsp"),
-                @Result(name = "error", location = "/error.jsp"),
-                @Result(name = "showmessage", location = "/InrepositoryMessage.jsp"),
-                @Result(name = "main", location = "/achiver.jsp")
+                @Result(name = "getAll", location = "/WEB-INF/fragments/InrepositoryManager.jsp"),
+                @Result(name = "showmessage", location = "/WEB-INF/fragments/InrepositoryMessage.jsp"),
         })
 public class StorageAction extends ActionSupport {
 
