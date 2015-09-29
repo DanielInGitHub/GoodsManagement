@@ -21,6 +21,7 @@ import java.util.List;
                 @Result(name = "error", location = "/error.jsp"),
         })
 public class DeliveryAction extends ActionSupport {
+
     @Autowired
     private DeliveryServiceImpl outRepositoryService;
     private List<DeliveryVo> list;
