@@ -61,12 +61,4 @@ public abstract class BasedaoA<T> {
      */
     public abstract int updateByPrimaryKeySelective(T record);
 
-    /**
-     * 获得所有的实体类，加入分页支持
-     *
-     * @param page      想要获取的页码
-     * @param rowCounts 一页的数量
-     * @return
-     */
-    public abstract List<T> selectAllByPage(int page, int rowCounts);
 }

@@ -88,16 +88,4 @@ public class StaffDaoImpl extends BasedaoA<StaffDto> {
         return sessionTemplate.selectList("org.fiveguns.mapper.StaffDtoMapper.selectAll");
     }
 
-    /**
-     * 获得所有的实体类，加入分页支持
-     *
-     * @param page      想要获取的页码
-     * @param rowCounts 一页的数量
-     * @return
-     */
-    @Override
-    public List<StaffDto> selectAllByPage(int page, int rowCounts) {
-        PageHelper.startPage(page, rowCounts);
-        return sessionTemplate.selectList("org.fiveguns.mapper.StaffDtoMapper.selectAllByPage");
-    }
 }
