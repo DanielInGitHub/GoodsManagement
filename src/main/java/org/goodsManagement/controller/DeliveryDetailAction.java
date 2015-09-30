@@ -48,7 +48,7 @@ public class DeliveryDetailAction {
         if (tmp == null || "".equals(tmp))
             page = 1;
         else page = Integer.parseInt(tmp);
-//        System.out.println(page);
+
         int counts = deliveryDetailService.getCounts();
         int total_page = counts % NUM_PER_PAGE == 0 ? counts / NUM_PER_PAGE : counts / NUM_PER_PAGE + 1;
         if (total_page < page || page <= 0)

@@ -16,8 +16,8 @@
     </listener>
 
     <filter>
-    <filter-name>LoginFilter</filter-name>
-    <filter-class>org.goodsManagement.controller.filter.LoginFilter</filter-class>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>org.goodsManagement.controller.filter.LoginFilter</filter-class>
     </filter>
 
     <filter-mapping>
@@ -33,6 +33,20 @@
 
     <filter-mapping>
         <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--Session,WebURI等的监控-->
+    <filter>
+        <filter-name>DruidWebStatFilter</filter-name>
+        <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+        <init-param>
+            <param-name>exclusions</param-name>
+            <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>DruidWebStatFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
