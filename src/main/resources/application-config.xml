@@ -67,7 +67,7 @@
 
         <!-- 监控数据库 -->
         <!--<property name="filters" value="stat"/>-->
-        <property name="filters" value="mergeStat"/>
+        <property name="filters" value="wall,mergeStat"/>
     </bean>
 
     <!-- 创建SqlSessionFactory-->

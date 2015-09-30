@@ -50,9 +50,8 @@ public class DeliveryDetailAction {
         else page = Integer.parseInt(tmp);
 //        System.out.println(page);
         int counts = deliveryDetailService.getCounts();
-        int total_page = counts / NUM_PER_PAGE;
-        if (total_page == 0)
-            total_page = 1;
+        int total_page = counts % NUM_PER_PAGE == 0 ? counts / NUM_PER_PAGE : counts / NUM_PER_PAGE + 1;
+
         if (total_page < page || page <= 0)
             page = 1;
         List<DeliveryDetailVO> dtos = deliveryDetailService.getEntitiesByPage(page, NUM_PER_PAGE);
